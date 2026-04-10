@@ -423,11 +423,13 @@ html.theme-dark body.page-spotify.page-case-study {
   --caption-muted: #58b56a;
 }
 html.theme-dark body.page-spotify.page-case-study .case-hero-plate {
+  /* Green-wash plate (not flat black) so it matches the light-theme intent */
   background: linear-gradient(
     105deg,
-    rgba(26, 156, 44, 0.28) 0%,
-    rgba(26, 40, 50, 0.95) 55%,
-    #141c24 100%
+    rgba(26, 156, 44, 0.42) 0%,
+    rgba(28, 52, 42, 0.88) 42%,
+    #1e2a24 78%,
+    #1a2520 100%
   );
 }
 html.theme-dark body.page-spotify.page-case-study .case-pullquote {

@@ -398,10 +398,8 @@ body.page-spotify.page-case-study .case-timeline__item:last-child {
 body.page-spotify.page-case-study .case-timeline__item::before {
   content: '';
   position: absolute;
-  /* Center dot on the 2px line (line center = 16px from ul left) */
-  left: calc(
-    var(--timeline-line-x) + 1px - var(--timeline-dot-size) / 2
-  );
+  /* Center dot on line (15px + 1px line center − 5px radius); avoid calc()/vars for older browsers */
+  left: 11px;
   top: 0.4em;
   width: var(--timeline-dot-size);
   height: var(--timeline-dot-size);
