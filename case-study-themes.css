@@ -1,0 +1,458 @@
+/* Themed case studies (Neoboard, Fly Fearless, Spotify) — one file, accent via --accent-rgb on body */
+
+body.page-neo.page-case-study {
+  --accent-rgb: 38, 144, 171;
+  --basis-green: #2690ab;
+  --basis-green-dark: #1e7490;
+  --basis-green-soft: rgba(38, 144, 171, 0.14);
+  --basis-green-border: rgba(38, 144, 171, 0.35);
+  --subnav-link: #6ba8bc;
+  --caption-muted: #4a8a9e;
+  --ph-mid: 0.35;
+}
+body.page-flyfearless.page-case-study {
+  --accent-rgb: 36, 102, 78;
+  --basis-green: #24664e;
+  --basis-green-dark: #1d5340;
+  --basis-green-soft: rgba(36, 102, 78, 0.14);
+  --basis-green-border: rgba(36, 102, 78, 0.35);
+  --subnav-link: #5a9d85;
+  --caption-muted: #4a8a78;
+  --ph-mid: 0.4;
+}
+body.page-spotify.page-case-study {
+  --accent-rgb: 26, 156, 44;
+  --basis-green: #1a9c2c;
+  --basis-green-dark: #158026;
+  --basis-green-soft: rgba(26, 156, 44, 0.14);
+  --basis-green-border: rgba(26, 156, 44, 0.35);
+  --subnav-link: #4eb85f;
+  --caption-muted: #3d8f4d;
+  --ph-mid: 0.38;
+}
+
+/* Hero screenshot plate — brand-tinted sage gradient (matches Basis reference layout) */
+body.page-neo.page-case-study .case-hero-plate {
+  background: linear-gradient(
+    105deg,
+    rgba(38, 144, 171, 0.34) 0%,
+    rgba(232, 244, 248, 0.95) 55%,
+    #f7fbfc 100%
+  );
+}
+body.page-flyfearless.page-case-study .case-hero-plate {
+  background: linear-gradient(
+    105deg,
+    rgba(36, 102, 78, 0.34) 0%,
+    rgba(232, 244, 238, 0.95) 55%,
+    #f7faf8 100%
+  );
+}
+body.page-spotify.page-case-study .case-hero-plate {
+  background: linear-gradient(
+    105deg,
+    rgba(26, 156, 44, 0.34) 0%,
+    rgba(232, 244, 236, 0.95) 55%,
+    #f7faf8 100%
+  );
+}
+
+body.page-neo.page-case-study .case-hero-placeholder,
+body.page-flyfearless.page-case-study .case-hero-placeholder,
+body.page-spotify.page-case-study .case-hero-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
+  font-family: 'Fira Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(
+    120deg,
+    rgba(0, 53, 76, 0.55) 0%,
+    rgba(var(--accent-rgb), var(--ph-mid)) 50%,
+    rgba(0, 53, 76, 0.45) 100%
+  );
+}
+
+body.page-neo.page-case-study .case-outcome-item,
+body.page-flyfearless.page-case-study .case-outcome-item,
+body.page-spotify.page-case-study .case-outcome-item {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), 0.12) 0%,
+    rgba(var(--accent-rgb), 0.05) 55%,
+    rgba(255, 255, 255, 0.96) 100%
+  );
+  border-color: var(--basis-green-border);
+}
+body.page-neo.page-case-study .case-outcome-item:hover,
+body.page-flyfearless.page-case-study .case-outcome-item:hover,
+body.page-spotify.page-case-study .case-outcome-item:hover {
+  border-color: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 8px 28px rgba(var(--accent-rgb), 0.14);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), 0.18) 0%,
+    rgba(var(--accent-rgb), 0.08) 50%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+}
+body.page-neo.page-case-study .case-figure-placeholder,
+body.page-flyfearless.page-case-study .case-figure-placeholder,
+body.page-spotify.page-case-study .case-figure-placeholder {
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.22), rgba(var(--accent-rgb), 0.06));
+  border-color: var(--basis-green-border);
+}
+body.page-neo.page-case-study .case-figure-placeholder--dim,
+body.page-flyfearless.page-case-study .case-figure-placeholder--dim,
+body.page-spotify.page-case-study .case-figure-placeholder--dim {
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.1), rgba(var(--accent-rgb), 0.03));
+  color: rgba(var(--accent-rgb), 0.95);
+}
+body.page-neo.page-case-study .case-solution-preview-cell,
+body.page-flyfearless.page-case-study .case-solution-preview-cell,
+body.page-spotify.page-case-study .case-solution-preview-cell {
+  border-color: var(--basis-green-border);
+  background: rgba(var(--accent-rgb), 0.04);
+}
+body.page-neo.page-case-study .case-feature-shot,
+body.page-flyfearless.page-case-study .case-feature-shot,
+body.page-spotify.page-case-study .case-feature-shot {
+  border-color: var(--basis-green-border);
+  background: rgba(var(--accent-rgb), 0.06);
+}
+body.page-neo.page-case-study .case-feature-shot--placeholder,
+body.page-flyfearless.page-case-study .case-feature-shot--placeholder,
+body.page-spotify.page-case-study .case-feature-shot--placeholder {
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0.04));
+}
+body.page-neo.page-case-study .case-process-split .case-figure-frame,
+body.page-neo.page-case-study .case-process-split .case-figure-frame--process-pair,
+body.page-flyfearless.page-case-study .case-process-split .case-figure-frame,
+body.page-flyfearless.page-case-study .case-process-split .case-figure-frame--process-pair,
+body.page-spotify.page-case-study .case-process-split .case-figure-frame,
+body.page-spotify.page-case-study .case-process-split .case-figure-frame--process-pair {
+  border-color: var(--basis-green-border);
+  background: rgba(var(--accent-rgb), 0.04);
+}
+body.page-neo.page-case-study .case-figure-frame,
+body.page-flyfearless.page-case-study .case-figure-frame,
+body.page-spotify.page-case-study .case-figure-frame {
+  border-color: var(--basis-green-border);
+  background: rgba(var(--accent-rgb), 0.04);
+}
+body.page-spotify.page-case-study .case-figure-frame.case-figure-frame--borderless {
+  border: none;
+  background: transparent;
+}
+body.page-neo.page-case-study .case-neo-iter-review-row__media .case-figure-frame {
+  border-color: var(--basis-green-border);
+  background: rgba(var(--accent-rgb), 0.04);
+}
+body.page-neo.page-case-study .case-option-eval__item--pro::before {
+  color: #2690ab;
+}
+body.page-neo.page-case-study .case-details,
+body.page-flyfearless.page-case-study .case-details,
+body.page-spotify.page-case-study .case-details {
+  border-color: var(--basis-green-border);
+  background: linear-gradient(180deg, #fff 0%, rgba(var(--accent-rgb), 0.04) 100%);
+}
+body.page-neo.page-case-study .case-details:hover,
+body.page-flyfearless.page-case-study .case-details:hover,
+body.page-spotify.page-case-study .case-details:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
+}
+body.page-neo.page-case-study .case-details[open],
+body.page-flyfearless.page-case-study .case-details[open],
+body.page-spotify.page-case-study .case-details[open] {
+  box-shadow: 0 10px 36px rgba(var(--accent-rgb), 0.1);
+  border-color: rgba(var(--accent-rgb), 0.5);
+}
+body.page-neo.page-case-study .case-details summary:hover,
+body.page-flyfearless.page-case-study .case-details summary:hover,
+body.page-spotify.page-case-study .case-details summary:hover {
+  background: rgba(var(--accent-rgb), 0.12);
+}
+body.page-neo.page-case-study .case-p--note,
+body.page-flyfearless.page-case-study .case-p--note,
+body.page-spotify.page-case-study .case-p--note {
+  background: rgba(var(--accent-rgb), 0.09);
+  border-color: var(--basis-green-border);
+}
+body.page-neo.page-case-study .case-deck-btn,
+body.page-flyfearless.page-case-study .case-deck-btn,
+body.page-spotify.page-case-study .case-deck-btn {
+  background: var(--basis-green);
+  box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.25);
+}
+body.page-neo.page-case-study .case-deck-btn:hover,
+body.page-flyfearless.page-case-study .case-deck-btn:hover,
+body.page-spotify.page-case-study .case-deck-btn:hover {
+  background: var(--basis-green-dark);
+  box-shadow: 0 14px 36px rgba(var(--accent-rgb), 0.32);
+}
+body.page-neo.page-case-study .case-more-tile,
+body.page-flyfearless.page-case-study .case-more-tile,
+body.page-spotify.page-case-study .case-more-tile {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+body.page-neo.page-case-study .case-more-tile:hover,
+body.page-flyfearless.page-case-study .case-more-tile:hover,
+body.page-spotify.page-case-study .case-more-tile:hover {
+  border: none;
+  box-shadow: none;
+}
+body.page-neo.page-case-study .case-more-tile:hover .case-more-squircle,
+body.page-flyfearless.page-case-study .case-more-tile:hover .case-more-squircle,
+body.page-spotify.page-case-study .case-more-tile:hover .case-more-squircle,
+body.page-neo.page-case-study .case-more-tile:focus-visible .case-more-squircle,
+body.page-flyfearless.page-case-study .case-more-tile:focus-visible .case-more-squircle,
+body.page-spotify.page-case-study .case-more-tile:focus-visible .case-more-squircle {
+  box-shadow:
+    0 20px 40px rgba(var(--accent-rgb), 0.22),
+    0 8px 18px rgba(0, 0, 0, 0.09);
+}
+body.page-neo.page-case-study .case-more-tile:focus-visible .case-more-squircle,
+body.page-flyfearless.page-case-study .case-more-tile:focus-visible .case-more-squircle,
+body.page-spotify.page-case-study .case-more-tile:focus-visible .case-more-squircle {
+  outline-color: var(--basis-green);
+}
+body.page-neo.page-case-study .case-more-tile.is-flash-hint .case-more-squircle,
+body.page-flyfearless.page-case-study .case-more-tile.is-flash-hint .case-more-squircle,
+body.page-spotify.page-case-study .case-more-tile.is-flash-hint .case-more-squircle {
+  box-shadow:
+    0 0 0 3px var(--basis-green),
+    0 12px 28px rgba(var(--accent-rgb), 0.14),
+    0 4px 14px rgba(0, 0, 0, 0.07);
+}
+body.page-neo.page-case-study .case-figure-frame--impact-fill,
+body.page-flyfearless.page-case-study .case-figure-frame--impact-fill,
+body.page-spotify.page-case-study .case-figure-frame--impact-fill {
+  background: rgba(var(--accent-rgb), 0.06);
+}
+body.page-neo.page-case-study .case-figure-img--heic,
+body.page-flyfearless.page-case-study .case-figure-img--heic,
+body.page-spotify.page-case-study .case-figure-img--heic {
+  background: rgba(var(--accent-rgb), 0.06);
+}
+body.page-neo.page-case-study .case-subnav,
+body.page-flyfearless.page-case-study .case-subnav,
+body.page-spotify.page-case-study .case-subnav {
+  border-bottom-color: rgba(var(--accent-rgb), 0.28);
+}
+body.page-neo.page-case-study .case-subnav-inner a.is-current,
+body.page-flyfearless.page-case-study .case-subnav-inner a.is-current,
+body.page-spotify.page-case-study .case-subnav-inner a.is-current {
+  border-bottom-color: rgba(var(--accent-rgb), 0.55);
+}
+body.page-neo.page-case-study .case-h2::after,
+body.page-flyfearless.page-case-study .case-h2::after,
+body.page-spotify.page-case-study .case-h2::after {
+  background: rgba(var(--accent-rgb), 0.22);
+}
+
+body.page-neo.page-case-study .case-subnav-inner a,
+body.page-flyfearless.page-case-study .case-subnav-inner a,
+body.page-spotify.page-case-study .case-subnav-inner a {
+  color: var(--subnav-link);
+}
+body.page-neo.page-case-study .case-subnav-inner a.is-current,
+body.page-flyfearless.page-case-study .case-subnav-inner a.is-current,
+body.page-spotify.page-case-study .case-subnav-inner a.is-current {
+  border-bottom-color: rgba(var(--accent-rgb), 0.65);
+}
+body.page-neo.page-case-study .case-caption,
+body.page-flyfearless.page-case-study .case-caption,
+body.page-spotify.page-case-study .case-caption {
+  color: var(--caption-muted);
+}
+body.page-neo.page-case-study .case-details summary::after,
+body.page-flyfearless.page-case-study .case-details summary::after,
+body.page-spotify.page-case-study .case-details summary::after {
+  color: rgba(var(--accent-rgb), 0.75);
+}
+body.page-neo.page-case-study .case-inline-link,
+body.page-flyfearless.page-case-study .case-inline-link,
+body.page-spotify.page-case-study .case-inline-link {
+  text-decoration-color: rgba(var(--accent-rgb), 0.4);
+}
+
+/* Fly Fearless — ordered lists & testimonial block */
+body.page-flyfearless.page-case-study .case-ol {
+  margin: 12px 0 0 1.35em;
+  padding-left: 0.35em;
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #00354c;
+}
+body.page-flyfearless.page-case-study .case-ol li {
+  margin-bottom: 0.75em;
+}
+body.page-flyfearless.page-case-study .case-ol li strong {
+  color: var(--basis-green-dark);
+}
+body.page-flyfearless.page-case-study .case-ol-meta {
+  color: #8f969c;
+}
+body.page-flyfearless.page-case-study .case-ol li::marker {
+  color: rgba(var(--accent-rgb), 0.75);
+  font-weight: 600;
+}
+body.page-flyfearless.page-case-study .case-process-split .case-figure-placeholder,
+body.page-spotify.page-case-study .case-process-split .case-figure-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+  border: none;
+}
+body.page-flyfearless.page-case-study .case-quote {
+  margin: 20px 0 0;
+  padding: 20px 22px 22px;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--accent-rgb), 0.06);
+  border-radius: 0 12px 12px 0;
+}
+body.page-flyfearless.page-case-study .case-quote .case-p:last-of-type {
+  margin-bottom: 0;
+}
+body.page-flyfearless.page-case-study .case-quote-attrib {
+  margin-top: 1rem;
+  font-family: 'Fira Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--subnav-link);
+}
+
+/* Spotify — pull quotes & key-decisions layout */
+body.page-spotify.page-case-study .case-pullquote {
+  margin: 14px 0;
+  padding: 14px 18px;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.45);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #00354c;
+  background: rgba(var(--accent-rgb), 0.06);
+  border-radius: 0 10px 10px 0;
+}
+body.page-spotify.page-case-study .case-outcome-sub {
+  color: var(--caption-muted);
+}
+body.page-spotify.page-case-study .case-p .case-emphasis {
+  font-weight: 700;
+  color: var(--basis-green-dark);
+}
+
+/* Spotify — process day timeline & “What I cut” callout */
+/* Rail: line + dots sit in the left 16px; copy starts after --timeline-gutter */
+body.page-spotify.page-case-study .case-timeline {
+  --timeline-line-x: 15px;
+  --timeline-dot-size: 10px;
+  --timeline-gutter: 2.75rem;
+  position: relative;
+  list-style: none;
+  margin: 1.5em 0 1.75em;
+  padding: 0.35em 0;
+  border: none;
+}
+body.page-spotify.page-case-study .case-timeline::before {
+  content: '';
+  position: absolute;
+  left: var(--timeline-line-x);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-rgb), 0.35) 0%,
+    rgba(var(--accent-rgb), 0.65) 50%,
+    rgba(var(--accent-rgb), 0.35) 100%
+  );
+  z-index: 0;
+}
+body.page-spotify.page-case-study .case-timeline__item {
+  position: relative;
+  padding: 0 0 1.5em var(--timeline-gutter);
+  margin: 0;
+  box-sizing: border-box;
+}
+body.page-spotify.page-case-study .case-timeline__item:last-child {
+  padding-bottom: 0;
+}
+body.page-spotify.page-case-study .case-timeline__item::before {
+  content: '';
+  position: absolute;
+  /* Center dot on the 2px line (line center = 16px from ul left) */
+  left: calc(
+    var(--timeline-line-x) + 1px - var(--timeline-dot-size) / 2
+  );
+  top: 0.4em;
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  border-radius: 50%;
+  background: var(--basis-green);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.35);
+  z-index: 1;
+}
+body.page-spotify.page-case-study .case-timeline__time {
+  font-family: 'Fira Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--caption-muted);
+  margin: 0 0 0.4em;
+}
+body.page-spotify.page-case-study .case-timeline__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #1a1f22;
+  margin: 0 0 0.45em;
+}
+body.page-spotify.page-case-study .case-timeline__body {
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(44, 50, 54, 0.78);
+  margin: 0;
+}
+body.page-spotify.page-case-study .case-process-callout {
+  margin: 0.25em 0 2em;
+  padding: 18px 20px;
+  border: 2px solid var(--basis-green);
+  border-radius: 12px;
+  background: rgba(var(--accent-rgb), 0.12);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb), 0.2),
+    0 8px 28px rgba(var(--accent-rgb), 0.12);
+}
+body.page-spotify.page-case-study .case-process-callout .case-p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(26, 31, 34, 0.88);
+}
+body.page-spotify.page-case-study .case-process-callout .case-p strong {
+  color: var(--basis-green-dark);
+  font-weight: 600;
+}
+
+/* Subnav mobile layout (single row + horizontal scroll, 24px gutters) lives in styles.css for all .page-case-study pages. */

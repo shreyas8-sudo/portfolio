@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:shreyashanmugam.framer.website)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__ad56e259-3057-44ea-9971-6a17ff52180d__use_figma",
+      "Bash(node -e \"require.resolve\\(''serve''\\)\")",
+      "Read(//usr/local/lib/node_modules/serve/**)",
+      "Bash(npm install:*)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/shreyashanmugam/Desktop/portfolio/homepage images/SS-logo.png\" \"/Users/shreyashanmugam/Desktop/portfolio/homepage images/Basis.png\" \"/Users/shreyashanmugam/Desktop/portfolio/homepage images/Neoboard.png\" \"/Users/shreyashanmugam/Desktop/portfolio/homepage images/Fly fearless.png\" \"/Users/shreyashanmugam/Desktop/portfolio/homepage images/Spotify.png\")"
+    ]
+  }
+}

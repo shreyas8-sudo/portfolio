@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{if(localStorage.getItem('ss-theme')==='dark')document.documentElement.classList.add('theme-dark');}catch(e){}})();</script>
+  <title>Playground — Shreya Shanmugam</title>
+  <link rel="icon" type="image/png" href="homepage%20images/SS-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study-themes.css" />
+  <link rel="stylesheet" href="dark-mode.css" />
+</head>
+<body class="page-playground">
+  <div id="mainPage">
+    <div class="page">
+      <header class="case-header case-header--home">
+        <div class="case-header-inner">
+          <a href="index.html" class="case-home-logo" aria-label="Home">
+            <img src="homepage%20images/SS-logo.png" alt="" width="87" height="89" />
+          </a>
+          <div class="nav-wrap">
+            <nav class="pill" role="navigation" aria-label="Primary">
+              <a class="nav-item" href="index.html"><span class="nav-fill" aria-hidden="true"></span><span class="nav-label">HOME</span></a>
+              <a class="nav-item" href="about.html"><span class="nav-fill" aria-hidden="true"></span><span class="nav-label">ABOUT</span></a>
+              <a class="nav-item" href="https://drive.google.com/file/d/1TNBHyqTxSHUOm1lDEhAfM9xkJUtxOBr_/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span class="nav-fill" aria-hidden="true"></span><span class="nav-label">RESUME</span></a>
+              <a class="nav-item active" href="playground.html"><span class="nav-fill" aria-hidden="true"></span><span class="nav-label">PLAYGROUND</span></a>
+              <a class="nav-item" href="#site-footer"><span class="nav-fill" aria-hidden="true"></span><span class="nav-label">CONTACT</span></a>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <div id="page-body">
+      <main class="pg-main">
+        <p class="pg-intro" data-reveal>Hover or tap images for details. Use the filters to browse by discipline.</p>
+
+        <nav class="pg-filter" role="toolbar" aria-label="Filter work by discipline" data-reveal>
+          <button type="button" class="pg-filter__btn is-active" data-pg-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="pg-filter__btn" data-pg-filter="fine-art" aria-pressed="false">Fine art</button>
+          <button type="button" class="pg-filter__btn" data-pg-filter="graphic-design" aria-pressed="false">Graphic design</button>
+          <button type="button" class="pg-filter__btn" data-pg-filter="motion" aria-pressed="false">Motion graphics</button>
+          <button type="button" class="pg-filter__btn" data-pg-filter="photography" aria-pressed="false">Photography</button>
+        </nav>
+
+        <div id="pg-playground" class="pg-masonry" aria-label="Playground work grid" data-pg-filter-active="all">
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="motion" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/45AA4DC9-A437-48A7-AFAC-6C7F514255AB.jpg" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Jasmine's in my hair</span>
+              <span class="pg-tile__popover-desc"> One frame from a stop motion </span>
+              <span class="pg-tile__popover-medium">Medium · Procreate </span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="motion" data-entry-url="" aria-label="Logo animation — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <video
+                class="pg-tile__visual pg-tile__visual--video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                disablepictureinpicture
+                src="playground%20content/Logo%20animation.mp4"
+              >
+                <source src="playground%20content/Logo%20animation.mp4" type="video/mp4" />
+              </video>
+              <p class="pg-tile__video-fallback">This clip could not be loaded in your browser.</p>
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Logo animation</span>
+              <span class="pg-tile__popover-desc"> Animation fo the outro a hype video.</span>
+              <span class="pg-tile__popover-medium">Medium · After Effects</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="fine-art" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/99010776-C28C-4AE6-9926-92E2DEB69475.jpg" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Sit Still Look Pretty</span>
+              <span class="pg-tile__popover-desc"> Painting that reveals another layer when you wear tinted glasses</span>
+              <span class="pg-tile__popover-medium">Medium · Acrylic on Canvas</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="graphic-design" data-entry-url="" aria-label="Fall auditions — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/FALL%20AUDITIONS.png" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Fall auditions</span>
+              <span class="pg-tile__popover-desc">Promo graphic for a competitive dance team</span>
+              <span class="pg-tile__popover-medium">Medium · Photoshop</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="photography" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/IMG_5680.JPG" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Perfect Center</span>
+              <span class="pg-tile__popover-desc"> Photo from a soccer game</code>.</span>
+              <span class="pg-tile__popover-medium">Medium · Photography</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="photography" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/IMG_6435.JPG" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Bali</span>
+              <span class="pg-tile__popover-desc"> An image of a beach in Bali (2019)</span>
+              <span class="pg-tile__popover-medium">Medium · Photography</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="photography" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/IMG_6453.JPG" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Monkey with my glasses</span>
+              <span class="pg-tile__popover-desc"> From Bali (2019)</code>.</span>
+              <span class="pg-tile__popover-medium">Medium · Photography</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="fine-art" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/IMG_9901.JPG" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Self portrait</span>
+              <span class="pg-tile__popover-desc"> A self portrait of myself from my Arangetram(2024)</span>
+              <span class="pg-tile__popover-medium">Medium · Acrylic on Canvas</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="graphic-design" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/Untitled-1.png" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Promotional graphic</span>
+              <span class="pg-tile__popover-desc"> For a dance competition</code>.</span>
+              <span class="pg-tile__popover-medium">Medium · Photoshop</span>
+            </span>
+          </article>
+
+          <article class="pg-tile" data-reveal data-pg-tile data-pg-category="fine-art" data-entry-url="" aria-label="Playground piece — show details on hover or tap">
+            <div class="pg-tile__surface">
+              <img class="pg-tile__visual" src="playground%20content/image.png" alt="" loading="lazy" />
+            </div>
+            <span class="pg-tile__popover" role="tooltip">
+              <span class="pg-tile__popover-title">Cyanotype Print of a plastic bage</span>
+              <span class="pg-tile__popover-desc"> A print of a plastic bag I found on the beach</span>
+              <span class="pg-tile__popover-medium">Medium · Cyanotype</span>
+            </span>
+          </article>
+
+        </div>
+
+        <section class="case-more case-more--playground" id="pg-see-case-studies" data-reveal aria-labelledby="pg-see-case-studies-heading">
+          <h2 class="case-h2 case-h2--rule" id="pg-see-case-studies-heading">See case studies</h2>
+          <div class="case-more-logos">
+            <a class="case-more-tile" href="basis.html" data-more-desc="Lavalab — Basis — B2B SaaS AI copilot for cost segregation workflows.">
+              <span class="case-more-squircle"><img class="case-more-logo" src="Case%20study%20logos/Basis.png" alt="Basis" width="200" height="200" loading="lazy" /></span>
+              <span class="case-more-popover" role="tooltip"></span>
+            </a>
+            <a class="case-more-tile" href="neo.html" data-more-desc="Neoboard — edtech productivity platform; product design internship work.">
+              <span class="case-more-squircle"><img class="case-more-logo" src="Case%20study%20logos/neoboardapp_logo.jpeg" alt="Neoboard" width="200" height="200" loading="lazy" /></span>
+              <span class="case-more-popover" role="tooltip"></span>
+            </a>
+            <a class="case-more-tile" href="flyfearless.html" data-more-desc="Fly Fearless Unlimited — mental health startup website redesign.">
+              <span class="case-more-squircle"><img class="case-more-logo" src="Case%20study%20logos/images.png" alt="Fly Fearless Unlimited" width="200" height="200" loading="lazy" /></span>
+              <span class="case-more-popover" role="tooltip"></span>
+            </a>
+            <a class="case-more-tile" href="spotify.html" data-more-desc="Spotify customisable widgets — design challenge on the streaming homepage.">
+              <span class="case-more-squircle case-more-squircle--cover"><img class="case-more-logo" src="Case%20study%20logos/spotify%20logo.webp" alt="Spotify" width="200" height="200" loading="lazy" /></span>
+              <span class="case-more-popover" role="tooltip"></span>
+            </a>
+          </div>
+        </section>
+      </main>
+      <footer id="site-footer">
+        <div class="footer-left">
+          <span class="footer-tagline">Let's connect!</span>
+          <div class="footer-icons">
+            <a class="footer-icon-mail" href="mailto:shreya.shanmugam25@gmail.com" aria-label="Email">
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="none"><rect x="0.5" y="0.5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M0.5 1.5L7.5 6.5L14.5 1.5" stroke="currentColor" stroke-width="1"/></svg>
+            </a>
+            <a class="footer-icon-li" href="https://www.linkedin.com/in/shreyaa-shanmugam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-copy-col">
+          <span class="footer-copy">&copy; Shreya Shanmugam 2026</span>
+          <span class="footer-attribution">Made with Claude, Cursor and <span class="footer-attribution-emoji">☕︎</span></span>
+        </div>
+      </footer>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+  <script src="case-study.js"></script>
+  <script src="playground.js"></script>
+</body>
+</html>

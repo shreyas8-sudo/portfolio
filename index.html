@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{if(localStorage.getItem('ss-theme')==='dark')document.documentElement.classList.add('theme-dark');}catch(e){}})();</script>
+  <title>Shreya Shanmugam</title>
+  <link rel="icon" type="image/png" href="homepage%20images/SS-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study-themes.css" />
+  <link rel="stylesheet" href="dark-mode.css" />
+</head>
+<body>
+
+  <!-- Animation overlay -->
+  <div id="animScreen">
+    <h1 class="hero-name" id="heroName">
+      <span class="cursor" id="cursor"></span>
+    </h1>
+  </div>
+
+  <!-- Main page -->
+  <div id="mainPage">
+    <div class="page">
+
+      <header class="case-header case-header--home">
+        <div class="case-header-inner">
+          <a href="index.html" class="case-home-logo" aria-label="Home">
+            <img src="homepage%20images/SS-logo.png" alt="" width="87" height="89" />
+          </a>
+          <div class="nav-wrap">
+            <nav class="pill" role="navigation" aria-label="Primary">
+              <a class="nav-item active" href="index.html">
+                <span class="nav-fill" aria-hidden="true"></span>
+                <span class="nav-label">HOME</span>
+              </a>
+              <a class="nav-item" href="about.html">
+                <span class="nav-fill" aria-hidden="true"></span>
+                <span class="nav-label">ABOUT</span>
+              </a>
+              <a class="nav-item" href="https://drive.google.com/file/d/1TNBHyqTxSHUOm1lDEhAfM9xkJUtxOBr_/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span class="nav-fill" aria-hidden="true"></span>
+                <span class="nav-label">RESUME</span>
+              </a>
+              <a class="nav-item" href="playground.html">
+                <span class="nav-fill" aria-hidden="true"></span>
+                <span class="nav-label">PLAYGROUND</span>
+              </a>
+              <a class="nav-item" href="#site-footer">
+                <span class="nav-fill" aria-hidden="true"></span>
+                <span class="nav-label">CONTACT</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <div id="page-body">
+
+      <!-- Hero card -->
+      <div class="hero-section">
+        <div class="hero-card">
+
+          <div class="ss-logo ss-logo--hero" aria-label="SS logo">
+            <img
+              class="hero-logo-img"
+              src="homepage%20images/SS-logo.png"
+              alt=""
+              width="174"
+              height="178"
+            />
+          </div>
+
+          <p class="hero-name-static">Shreya Shanmugam</p>
+          <p class="hero-sub">Business and Product Design @ USC</p>
+          <p class="hero-tagline">✦&nbsp; Turning Complexity into Clarity &nbsp;✦</p>
+          <p class="about-badge hero-availability-badge">* Open to summer 2026 internships</p>
+        </div>
+      </div>
+
+      <!-- Case studies -->
+      <div class="cases-section" id="case-studies">
+        <div class="cases-header" data-reveal>
+          <span class="cases-label">Case Studies</span>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Boxed / floating alternate (portfolio reference layout) -->
+          <a class="card card--boxed" href="basis.html" id="case-lavalab" data-reveal>
+            <div class="card-cover-wrap" aria-hidden="true">
+              <img class="card-cover" src="homepage%20images/Basis.png" alt="" />
+            </div>
+            <div class="card-body">
+              <span class="card-title">Lavalab — Basis<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="card-tag">B2B SAAS · AI COPILOT</span>
+              <p class="card-desc">B2B SaaS AI Copilot to simplify cost segregation workflows</p>
+            </div>
+          </a>
+
+          <a class="card card--float" href="neo.html" id="case-neoboard" data-reveal>
+            <div class="card-cover-wrap" aria-hidden="true">
+              <img class="card-cover" src="homepage%20images/Neoboard.png" alt="" />
+            </div>
+            <div class="card-body">
+              <span class="card-title">Neoboard<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="card-tag">EDTECH · PRODUCT DESIGN</span>
+              <p class="card-desc">Product design for an education productivity platform</p>
+            </div>
+          </a>
+
+          <a class="card card--boxed" href="flyfearless.html" id="case-fly-fearless" data-reveal>
+            <div class="card-cover-wrap" aria-hidden="true">
+              <img class="card-cover" src="homepage%20images/Fly%20fearless.png" alt="" />
+            </div>
+            <div class="card-body">
+              <span class="card-title">Fly Fearless Unlimited<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="card-tag">MENTAL HEALTH · STARTUP</span>
+              <p class="card-desc">Website redesign for a mental health startup</p>
+            </div>
+          </a>
+
+          <a class="card card--float" href="spotify.html" id="case-spotify" data-reveal>
+            <div class="card-cover-wrap" aria-hidden="true">
+              <img class="card-cover" src="homepage%20images/Spotify.png" alt="" />
+            </div>
+            <div class="card-body">
+              <span class="card-title">Spotify Customisable Widgets<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="card-tag">STREAMING · FEATURE DESIGN</span>
+              <p class="card-desc">A design challenge to add a feature to a streaming platform</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="site-footer">
+        <div class="footer-left">
+          <span class="footer-tagline">Let's connect!</span>
+          <div class="footer-icons">
+            <!-- Mail: 30×28px border #666 rounded-16 -->
+            <a class="footer-icon-mail" href="mailto:shreya.shanmugam25@gmail.com" aria-label="Email">
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
+                <rect x="0.5" y="0.5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1"/>
+                <path d="M0.5 1.5L7.5 6.5L14.5 1.5" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </a>
+            <!-- LinkedIn: 30×30px border #666 rounded-18, "in" Fira Mono Medium 10px -->
+            <a class="footer-icon-li" href="https://www.linkedin.com/in/shreyaa-shanmugam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-copy-col">
+          <span class="footer-copy">© Shreya Shanmugam 2026</span>
+          <span class="footer-attribution">Made with Claude, Cursor and <span class="footer-attribution-emoji">☕︎</span></span>
+        </div>
+      </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+</html>
