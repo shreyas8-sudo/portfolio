@@ -42,9 +42,32 @@
       border: 1px solid var(--basis-green-border);
       background: linear-gradient(180deg, #fff 0%, rgba(102, 154, 128, 0.05) 100%);
     }
+    #process .basis-iter-col--broke .case-figure-img {
+      width: 100%;
+      max-height: 260px;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      margin: 0 0 12px;
+      border-radius: 8px;
+    }
     #process .basis-process-intro-pair {
       margin: 1.25em auto 0;
       max-width: 920px;
+    }
+    #process .basis-process-intro-pair > .case-h3.case-h3--spaced {
+      margin-top: 1.5em;
+    }
+    #process .basis-process-intro-pair > .case-figure-frame {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    #process .basis-process-intro-pair > .case-figure-frame .case-figure-img {
+      width: 100%;
+      max-height: 260px;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
     }
     #process .basis-process-intro-pair__row {
       display: flex;
@@ -274,25 +297,15 @@
     #process .basis-research-split__media {
       min-width: 0;
     }
-    #process .basis-research-split__media .case-figure-frame {
-      margin: 0;
-      max-width: 100%;
-    }
-    #process .basis-research-split__media .case-figure-img {
-      width: 100%;
-      max-height: 260px;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
-    }
     #process .basis-research-split__media .case-caption {
-      margin-top: 10px;
+      margin-top: 0;
     }
     @media (max-width: 720px) {
       #process .basis-research-split {
         grid-template-columns: 1fr;
       }
-      #process .basis-research-split__media .case-figure-img {
+      #process .basis-process-intro-pair > .case-figure-frame .case-figure-img,
+      #process .basis-iter-col--broke .case-figure-img {
         max-height: 220px;
       }
     }
@@ -526,6 +539,7 @@
                   <figcaption class="case-caption">Mapping the full cost segregation workflow. The analysis phase emerged as the critical leverage point.</figcaption>
                 </figure>
               </div>
+              <h3 class="case-h3 case-h3--spaced">Research in the room</h3>
             </div>
 
             <h3 class="case-h3 case-h3--spaced">Our first assumption was wrong</h3>
@@ -545,9 +559,10 @@
               </div>
               <div class="basis-iter-col basis-iter-col--broke">
                 <p class="basis-iter-kicker">Where it broke</p>
+                <img class="case-figure-img" src="basis-images/research-in-the-room.png" alt="A cost segregation professional on a Zoom call giving feedback on an early Basis prototype" loading="lazy" width="1400" height="900" />
                 <div class="basis-iter-text">
                   <p class="case-p">
-                    When we showed this to Dave McGuire, company owner at McGuire and Sponsor, his response was immediate: &ldquo;It doesn&rsquo;t work like that.&rdquo; Cost segregation requires professional judgment on factors AI can&rsquo;t assess - the state the property is in, its age, local tax code nuances, and dozens of small decisions that only experienced engineers can make. Technically, a license is required to sign off on a cost segregation study. AI cannot do that.
+                    When we showed this to a company owner in the space, their response was immediate: &ldquo;It doesn&rsquo;t work like that.&rdquo; Cost segregation requires professional judgment on factors AI can&rsquo;t assess - the state the property is in, its age, local tax code nuances, and dozens of small decisions that only experienced engineers can make. Technically, a license is required to sign off on a cost segregation study. AI cannot do that.
                   </p>
                 </div>
               </div>
@@ -574,7 +589,7 @@
                   </div>
                   <div class="basis-proc-timeline__body">
                     <p class="basis-proc-timeline__title">Full AI automation</p>
-                    <p class="basis-proc-timeline__text">Upload documents, AI generates complete report. We showed it to Dave McGuire at McGuire and Sponsor—immediately invalidated. The workflow has too many judgment calls for AI to handle alone.</p>
+                    <p class="basis-proc-timeline__text">Upload documents, AI generates complete report. We showed it to a practicing specialist in the industry—immediately invalidated. The workflow has too many judgment calls for AI to handle alone.</p>
                   </div>
                 </div>
               </li>
@@ -616,20 +631,15 @@
               </li>
             </ul>
 
-            <h3 class="case-h3 case-h3--spaced">Research in the room</h3>
-
             <div class="basis-research-split" data-reveal>
               <div class="basis-research-split__text">
                 <p class="case-p">
-                  One of our most valuable sessions was a Zoom call with Dave McGuire, company owner at McGuire and Sponsor. He gave us candid feedback on the prototype—what would and wouldn&rsquo;t fly in a real cost segregation workflow, and why &ldquo;AI does it all&rdquo; broke down the moment you tried to defend the output to a client or an auditor. Hearing that from someone who runs the business day to day did more to sharpen our direction than any internal critique.
+                  One of our most valuable sessions was a Zoom call with a company owner who gave us candid feedback on the prototype—what would and wouldn&rsquo;t fly in a real cost segregation workflow, and why &ldquo;AI does it all&rdquo; broke down the moment you tried to defend the output to a client or an auditor. Hearing that from someone who runs the business day to day did more to sharpen our direction than any internal critique.
                 </p>
               </div>
               <div class="basis-research-split__media">
                 <figure class="case-figure">
-                  <div class="case-figure-frame">
-                    <img class="case-figure-img" src="basis-images/research-in-the-room.png" alt="Dave McGuire of McGuire and Sponsor on a Zoom call giving feedback on an early Basis prototype" loading="lazy" width="1400" height="900" />
-                  </div>
-                  <figcaption class="case-caption">Dave McGuire, company owner at McGuire and Sponsor, walking through feedback on our prototype over Zoom—one of the sessions that reshaped our understanding of the problem.</figcaption>
+                  <figcaption class="case-caption">Feedback on our prototype over Zoom—one of the sessions that reshaped our understanding of the problem.</figcaption>
                 </figure>
               </div>
             </div>
@@ -676,13 +686,13 @@
               <details class="case-details">
                 <summary>Ship fast and iterate faster</summary>
                 <div class="case-details__body">
-                  <p class="case-p">Short cycles with real users surfaced what slide decks couldn&rsquo;t. Losing a design partner hurt, but it sharpened how we framed partnerships. Continuous iteration >>> Perfect first draft.</p>
+                  <p class="case-p">We went through four meaningful versions of Basis in six weeks &mdash; not because we planned to, but because each round of testing with real users broke an assumption we&rsquo;d built the previous version around. V1 assumed AI could do everything. It couldn&rsquo;t. V2 added human checkpoints but still leaned too hard on automation. V3 brought documents and AI output into the same view. Each version wasn&rsquo;t a failure &mdash; it was the research. The jump from V1 to final wasn&rsquo;t a leap, it was a series of small, forced corrections. That&rsquo;s what fast iteration actually looks like.</p>
                 </div>
               </details>
               <details class="case-details">
-                <summary>Brand and pitch matter more than you think</summary>
+                <summary>The details you overlook are the ones that matter most</summary>
                 <div class="case-details__body">
-                  <p class="case-p"> In a conservative, regulated space, how you explain the product is as important as what it does. Midway through the project, we revisited our branding and positioning - and saw an immediate shift in how people reacted. Clearer language, consistent visual motifs, and a more restrained tone made the product feel more credible, easier to understand.</p>
+                  <p class="case-p">I spent two weeks on branding alone and still almost got it wrong. Typography shapes a product&rsquo;s credibility more than I expected &mdash; a font choice that feels neutral in isolation can make a B2B tool look untrustworthy to the exact people you&rsquo;re trying to sell to. I also learned that opacity does more quiet work than adding new colors ever could, and that Figma&rsquo;s auto layout is a high-fidelity tool &mdash; forcing it into lo-fi exploration doesn&rsquo;t make your wireframes better, it just slows you down and adds constraints before you&rsquo;re ready for them.</p>
                 </div>
               </details>
             </div>
