@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="dark-mode.css" />
   <style>
     body.page-home .hero-card {
-      background: linear-gradient(135deg, #0d3a4a, #0f4d63, #1a5c73, #0d3a4a);
-      background-size: 300% 300%;
-      animation: homeHeroGradientShift 8s ease-in-out infinite alternate;
+      background: linear-gradient(135deg, #0d3a4a 0%, #0f4d63 38%, #1a5c73 62%, #0d3a4a 100%);
+      background-size: 115% 115%;
+      animation: homeHeroGradientShift 2s ease-in-out infinite alternate;
     }
     @keyframes homeHeroGradientShift {
       0% { background-position: 0% 50%; }
@@ -28,6 +28,17 @@
         animation: none;
         background: #0d3a4a;
       }
+    }
+    body.page-home #case-studies .card[data-reveal].is-visible:active {
+      transform: scale(0.98) translateY(2px);
+      transition:
+        transform 0.14s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.14s ease,
+        background-color 0.14s ease;
+      box-shadow: 0 12px 32px var(--ds-navy-14);
+    }
+    body.page-home #case-studies .card[data-reveal].is-visible:hover:active {
+      transform: scale(0.98) translateY(-1px);
     }
     body.page-home .card-outcome {
       font-family: 'Albert Sans', system-ui, sans-serif;
@@ -102,7 +113,7 @@
 
           <p class="hero-name-static">Shreya Shanmugam</p>
           <p class="hero-sub">Business and Product Design @ USC</p>
-          <p class="hero-tagline">✦&nbsp; designing to ship. &nbsp;✦</p>
+          <p class="hero-tagline">✦&nbsp; designing to ship &nbsp;✦</p>
         </div>
       </div>
 
