@@ -59,13 +59,14 @@
       border-radius: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      /* Visible but still on-brand: a bit lighter than #0d3a4a */
+      /* Slightly stronger read than before; same hue as #0d3a4a */
       background: radial-gradient(
         circle,
-        rgba(52, 108, 128, 0.75) 0%,
-        rgba(36, 88, 108, 0.45) 22%,
-        rgba(22, 72, 90, 0.2) 45%,
-        rgba(13, 58, 74, 0) 58%
+        rgba(72, 128, 148, 0.92) 0%,
+        rgba(48, 102, 122, 0.58) 20%,
+        rgba(30, 82, 100, 0.32) 40%,
+        rgba(18, 62, 78, 0.1) 52%,
+        rgba(13, 58, 74, 0) 62%
       );
     }
     body.page-home .hero-ripples::before {
@@ -78,7 +79,7 @@
     @keyframes homeHeroRipple {
       0% {
         transform: translate(-50%, -50%) scale(0.12);
-        opacity: 0.82;
+        opacity: 0.94;
       }
       100% {
         transform: translate(-50%, -50%) scale(2.05);
