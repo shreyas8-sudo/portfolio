@@ -12,6 +12,179 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
+  <style>
+    /* Basis — Process section only (iteration compare + version timeline) */
+    #process .basis-iter-kicker {
+      font-family: 'Fira Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+      margin: 0 0 12px;
+    }
+    #process .basis-iter-compare {
+      margin: 20px 0 12px;
+    }
+    #process .basis-iter-col {
+      min-width: 0;
+    }
+    #process .basis-iter-col--v1 {
+      padding: 16px 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--basis-green-border);
+      background: rgba(102, 154, 128, 0.06);
+      opacity: 0.94;
+      filter: saturate(0.88);
+    }
+    #process .basis-iter-col--broke {
+      padding: 16px 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--basis-green-border);
+      background: linear-gradient(180deg, #fff 0%, rgba(102, 154, 128, 0.05) 100%);
+    }
+    #process .basis-iter-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    #process .basis-iter-stack img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 53, 76, 0.12);
+    }
+    #process .basis-iter-col .case-caption {
+      margin-top: 0;
+    }
+    #process .basis-proc-timeline {
+      --tl-dot: 10px;
+      --tl-gutter: 2.75rem;
+      list-style: none;
+      margin: 1.35em 0 0.5em;
+      padding: 0.35em 0;
+      position: relative;
+    }
+    #process .basis-proc-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      margin-left: -1px;
+      border-radius: 2px;
+      background: linear-gradient(
+        180deg,
+        rgba(102, 154, 128, 0.35) 0%,
+        rgba(102, 154, 128, 0.65) 50%,
+        rgba(102, 154, 128, 0.35) 100%
+      );
+      z-index: 0;
+    }
+    #process .basis-proc-timeline__item {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 0 0 1.45em var(--tl-gutter);
+      margin: 0;
+    }
+    #process .basis-proc-timeline__item:last-child {
+      padding-bottom: 0;
+    }
+    #process .basis-proc-timeline__item::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 0.45rem;
+      width: var(--tl-dot);
+      height: var(--tl-dot);
+      border-radius: 50%;
+      background: var(--basis-green);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 1px rgba(102, 154, 128, 0.35);
+      z-index: 1;
+    }
+    #process .basis-proc-timeline__item--final::before {
+      box-shadow: 0 0 0 3px rgba(102, 154, 128, 0.28);
+    }
+    #process .basis-proc-timeline__badge {
+      flex: 0 0 auto;
+      min-width: 2.65rem;
+      text-align: center;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-family: 'Fira Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6a7a82;
+      background: rgba(0, 53, 76, 0.06);
+      border: 1px solid rgba(0, 53, 76, 0.1);
+      margin-top: 1px;
+    }
+    #process .basis-proc-timeline__item--final .basis-proc-timeline__badge {
+      color: #fff;
+      background: var(--basis-green);
+      border-color: var(--basis-green-dark);
+    }
+    #process .basis-proc-timeline__body {
+      flex: 1;
+      min-width: 0;
+    }
+    #process .basis-proc-timeline__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 1.35;
+      color: #00354c;
+      margin: 0 0 0.4em;
+    }
+    #process .basis-proc-timeline__text {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(44, 50, 54, 0.78);
+      margin: 0;
+    }
+    #process .basis-research-figure {
+      margin: 20px 0 8px;
+    }
+    #process .basis-research-figure .case-figure-frame {
+      max-width: 100%;
+    }
+    html.theme-dark #process .basis-iter-col--v1 {
+      background: rgba(102, 154, 128, 0.1);
+      filter: saturate(0.75);
+    }
+    html.theme-dark #process .basis-iter-col--broke {
+      background: linear-gradient(180deg, #1a252e 0%, rgba(102, 154, 128, 0.08) 100%);
+    }
+    html.theme-dark #process .basis-proc-timeline__title {
+      color: #e4eaee;
+    }
+    html.theme-dark #process .basis-proc-timeline__text {
+      color: #a8b4bd;
+    }
+    html.theme-dark #process .basis-proc-timeline__badge {
+      color: #a8b4bd;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    html.theme-dark #process .basis-proc-timeline__item--final .basis-proc-timeline__badge {
+      color: #0d1f14;
+      background: #6b9d7e;
+      border-color: #5a8a6c;
+    }
+    @media (max-width: 900px) {
+      #process .basis-proc-timeline {
+        --tl-gutter: 2.35rem;
+      }
+    }
+  </style>
 </head>
 <body class="page-case-study">
 
@@ -180,75 +353,109 @@
           <section id="process" class="case-section case-anchor" data-reveal>
             <h2 class="case-h2">Process</h2>
 
-            <h3 class="case-h3">Understanding the problem</h3>
+            <h3 class="case-h3">Starting with what we didn&rsquo;t know</h3>
             <p class="case-p">
-              Through interviews across the industry—including retired cost segregation specialists, practicing engineers, sales leaders, and firm CEOs—we built a holistic view of how studies are executed, sold, reviewed, and defended today.
-            </p>
-
-            <div class="case-process-split" data-reveal>
-              <figure class="case-figure case-figure--split">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="basis-images/Process1-zoom.png" alt="Process zoom and detail" loading="lazy" width="900" height="700" />
-                </div>
-                <figcaption class="case-caption">Fig 1: A user interview with a retired cost segregation specialist to understand the process.</figcaption>
-              </figure>
-              <figure class="case-figure case-figure--split case-figure--workflow-sm">
-                <div class="case-figure-frame case-figure-frame--process-pair">
-                  <img class="case-figure-img" src="basis-images/Process-workflow.png" alt="Mapping the cost segregation workflow" loading="lazy" width="1200" height="675" />
-                </div>
-                <figcaption class="case-caption">Fig 2: Mapping out the workflow — the analysis phase emerged as the critical leverage point.</figcaption>
-              </figure>
-            </div>
-
-            <p class="case-p">
-              While many AI tools tried to automate this step, they failed at the same point: engineers couldn&rsquo;t easily trace outputs back to source documentation or understand how decisions were made.
+              None of us had a background in cost segregation. Before designing anything, we had to become fluent in how the industry actually worked &mdash; the stages, the stakeholders, the regulations, and where professionals spent their time.
             </p>
             <p class="case-p">
-              The biggest friction isn&rsquo;t analysis — it&rsquo;s <em>confidence</em>. Faster outputs don&rsquo;t matter if they can&rsquo;t be verified or defended. When confidence breaks, manual rework takes over.
+              We interviewed almost every person in the workflow: retired cost segregation specialists, practicing engineers, people whose full-time job is organizing property photos, sales leaders, podcast hosts for the industry, and CEOs of both small-to-medium and medium-to-large firms. We even interviewed construction engineers when cost segregation specialists were hard to find &mdash; their perspective helped us understand the broader physical context of what was being analyzed.
+            </p>
+            <p class="case-p">
+              One thing that surprised us early: there are people whose entire job is sitting and manually organizing property photos and matching them to asset classifications. We assumed this was something that could be easily automated. We were surprised it hadn&rsquo;t been already.
             </p>
 
-            <h3 class="case-h3 case-h3--spaced" data-reveal>Validation and setbacks</h3>
-            <p class="case-p" data-reveal>
-              Around week 3, we secured verbal commitment from a mid-sized firm to act as a design partner and provide data in exchange for building a solution. A few weeks in, they chose to build internally and ended the collaboration over text.
-            </p>
-            <p class="case-p case-p--note" data-reveal>
-              <strong>Key learning:</strong> Strong demand validated our direction but highlighted the need to secure partnerships early with clear NDAs.
-            </p>
-
-            <h3 class="case-h3 case-h3--spaced">Building with AI</h3>
-
-            <div class="case-building-split" data-reveal>
-              <div class="case-building-text">
-                <p class="case-p">
-                  With minimal engineering bandwidth we prototyped in Cursor, Lovable, and Figma. The largest issues were that early versions didn&rsquo;t account for documentation and evidence, and oversimplified the workflow to be completely AI-dependent.
-                </p>
+            <figure class="case-figure" data-reveal>
+              <div class="case-figure-frame">
+                <img class="case-figure-img" src="basis-images/Process1-zoom.png" alt="User interview with a retired cost segregation specialist" loading="lazy" width="900" height="700" />
               </div>
-              <figure class="case-figure case-figure--building">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="basis-images/AI%20Testing%201.png" alt="Initial explorations and AI-assisted testing" loading="lazy" width="900" height="650" />
-                </div>
-                <figcaption class="case-caption"> Fig 3: Getting feedback on our initial explorations with AI from the CEO of Mcguire and Sponsel.</figcaption>
-              </figure>
-            </div>
+              <figcaption class="case-caption">A user interview with a retired cost segregation specialist &mdash; one of 15+ conversations that shaped our understanding of the workflow.</figcaption>
+            </figure>
 
-            <div class="case-building-split case-building-split--reverse" data-reveal>
-              <figure class="case-figure case-figure--building">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="basis-images/Feature%202.png" alt="Final direction — cross-referencing and evidence" loading="lazy" width="900" height="650" />
+            <figure class="case-figure" data-reveal>
+              <div class="case-figure-frame case-figure-frame--process-pair">
+                <img class="case-figure-img" src="basis-images/Process-workflow.png" alt="Mapping the full cost segregation workflow" loading="lazy" width="1200" height="675" />
+              </div>
+              <figcaption class="case-caption">Mapping the full cost segregation workflow. The analysis phase emerged as the critical leverage point.</figcaption>
+            </figure>
+
+            <h3 class="case-h3 case-h3--spaced">Our first assumption was wrong</h3>
+            <p class="case-p">
+              Before talking to enough users, we built our first prototype around a simple assumption: upload the documents, and AI generates a complete cost segregation report. No human involvement needed.
+            </p>
+
+            <div class="case-building-split basis-iter-compare" data-reveal>
+              <div class="basis-iter-col basis-iter-col--v1">
+                <p class="basis-iter-kicker">V1 &mdash; first assumption</p>
+                <div class="basis-iter-stack">
+                  <img src="basis-images/iteration-v1-upload-1.png" alt="Early prototype: upload flow" loading="lazy" width="800" height="600" />
+                  <img src="basis-images/iteration-v1-upload-2.png" alt="Early prototype: AI report output" loading="lazy" width="800" height="600" />
                 </div>
-                <figcaption class="case-caption">Final direction — evidence, cross-references, and navigation.</figcaption>
-              </figure>
-              <div class="case-building-text">
-                <p class="case-p">Our final direction ensured we:</p>
-                <ul class="case-bullet-list case-bullet-list--tight">
-                  <li>Account for evidence and traceability</li>
-                  <li>Allow fast cross-references</li>
-                  <li>Help engineers keep a checklist</li>
-                  <li>Keep engineers in the workflow</li>
-                  <li>Allow navigation from whole-property view down to a single asset</li>
-                </ul>
+                <p class="case-caption">Upload documents &rarr; AI generates full report. No human in the loop.</p>
+              </div>
+              <div class="basis-iter-col basis-iter-col--broke">
+                <p class="basis-iter-kicker">Where it broke</p>
+                <div class="basis-iter-text">
+                  <p class="case-p">
+                    When we showed this to a company owner, their response was immediate: &ldquo;It doesn&rsquo;t work like that.&rdquo; Cost segregation requires professional judgment on factors AI can&rsquo;t assess &mdash; the state the property is in, its age, local tax code nuances, and dozens of small decisions that only experienced engineers can make. Technically, a license is required to sign off on a cost segregation study. AI cannot do that.
+                  </p>
+                </div>
               </div>
             </div>
+
+            <p class="case-p">
+              This wasn&rsquo;t a small pivot. It meant rethinking the entire information architecture from scratch.
+            </p>
+
+            <h3 class="case-h3 case-h3--spaced">Finding the right balance</h3>
+            <p class="case-p">
+              We didn&rsquo;t swing to fully manual &mdash; we kept leaning on AI but had to add more and more human checkpoints as we learned where the gaps were. Each round of testing with real users revealed another step that required professional judgment, and we built around those moments rather than trying to automate past them.
+            </p>
+            <p class="case-p">
+              The turning point came when we realized the core problem wasn&rsquo;t speed &mdash; it was <em>confidence</em>. Engineers needed to be able to trace every AI output back to source documentation and defend it. Faster analysis meant nothing if it couldn&rsquo;t be verified.
+            </p>
+
+            <ul class="basis-proc-timeline" role="list" data-reveal>
+              <li class="basis-proc-timeline__item">
+                <span class="basis-proc-timeline__badge">V1</span>
+                <div class="basis-proc-timeline__body">
+                  <p class="basis-proc-timeline__title">Full AI automation</p>
+                  <p class="basis-proc-timeline__text">Upload documents, AI generates complete report. Showed to a company owner &mdash; immediately invalidated. The workflow has too many judgment calls for AI to handle alone.</p>
+                </div>
+              </li>
+              <li class="basis-proc-timeline__item">
+                <span class="basis-proc-timeline__badge">V2</span>
+                <div class="basis-proc-timeline__body">
+                  <p class="basis-proc-timeline__title">Adding human checkpoints</p>
+                  <p class="basis-proc-timeline__text">Introduced review and override steps after AI analysis. Engineers could adjust values and flag issues. Still too AI-dependent in the classification phase.</p>
+                </div>
+              </li>
+              <li class="basis-proc-timeline__item">
+                <span class="basis-proc-timeline__badge">V3</span>
+                <div class="basis-proc-timeline__body">
+                  <p class="basis-proc-timeline__title">Cross-referencing in one place</p>
+                  <p class="basis-proc-timeline__text">Brought source documents &mdash; photos, appraisals, floor plans &mdash; into the same interface as the AI output. Engineers could now verify classifications without switching between tools.</p>
+                </div>
+              </li>
+              <li class="basis-proc-timeline__item basis-proc-timeline__item--final">
+                <span class="basis-proc-timeline__badge">Final</span>
+                <div class="basis-proc-timeline__body">
+                  <p class="basis-proc-timeline__title">Human-in-the-loop throughout</p>
+                  <p class="basis-proc-timeline__text">Review, override, and sign-off checkpoints at every major stage. AI handles extraction and classification; engineers handle judgment, verification, and final approval.</p>
+                </div>
+              </li>
+            </ul>
+
+            <h3 class="case-h3 case-h3--spaced">Research in the room</h3>
+            <p class="case-p">
+              One of our most valuable sessions was a Zoom call where a company owner walked us through their actual cost segregation spreadsheet in real time. Seeing the raw complexity of what professionals work with every day &mdash; depreciation schedules, property class breakdowns, cash flow projections across 27.5-year periods &mdash; made it clear why the &ldquo;AI does it all&rdquo; assumption had been so naive.
+            </p>
+
+            <figure class="case-figure basis-research-figure" data-reveal>
+              <div class="case-figure-frame">
+                <img class="case-figure-img" src="basis-images/research-zoom.png" alt="Company owner sharing a cost segregation spreadsheet over Zoom" loading="lazy" width="1400" height="900" />
+              </div>
+              <figcaption class="case-caption">A company owner sharing their cost segregation spreadsheet with the team over Zoom &mdash; one of the sessions that reshaped our understanding of the problem.</figcaption>
+            </figure>
           </section>
 
           <section id="impact" class="case-section case-anchor" data-reveal>
