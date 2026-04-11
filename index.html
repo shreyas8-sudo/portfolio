@@ -12,8 +12,34 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
+  <style>
+    body.page-home .hero-card {
+      background: linear-gradient(135deg, #0d3a4a, #0f4d63, #1a5c73, #0d3a4a);
+      background-size: 300% 300%;
+      animation: homeHeroGradientShift 8s ease-in-out infinite alternate;
+    }
+    @keyframes homeHeroGradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body.page-home .hero-card {
+        animation: none;
+        background: #0d3a4a;
+      }
+    }
+    body.page-home .card-outcome {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ds-muted);
+      margin: 0;
+      max-width: 36em;
+    }
+  </style>
 </head>
-<body>
+<body class="page-home">
 
   <!-- Animation overlay -->
   <div id="animScreen">
@@ -76,8 +102,7 @@
 
           <p class="hero-name-static">Shreya Shanmugam</p>
           <p class="hero-sub">Business and Product Design @ USC</p>
-          <p class="hero-tagline">✦&nbsp; Turning Complexity into Clarity &nbsp;✦</p>
-          <p class="about-badge hero-availability-badge">Open to summer 2026 internships</p>
+          <p class="hero-tagline">✦&nbsp; designing to ship. &nbsp;✦</p>
         </div>
       </div>
 
@@ -98,17 +123,7 @@
               <span class="card-title">Lavalab — Basis<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="card-tag">B2B SAAS · AI COPILOT</span>
               <p class="card-desc">B2B SaaS AI Copilot to simplify cost segregation workflows</p>
-            </div>
-          </a>
-
-          <a class="card card--float" href="neo.html" id="case-neoboard" data-reveal>
-            <div class="card-cover-wrap" aria-hidden="true">
-              <img class="card-cover" src="homepage%20images/Neoboard.png" alt="" />
-            </div>
-            <div class="card-body">
-              <span class="card-title">Neoboard<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="card-tag">EDTECH · PRODUCT DESIGN</span>
-              <p class="card-desc">Product design for an education productivity platform</p>
+              <p class="card-outcome">Co-founded and shipped an AI copilot in 6 weeks — won Best Traction at LavaLab F25</p>
             </div>
           </a>
 
@@ -120,6 +135,7 @@
               <span class="card-title">Fly Fearless Unlimited<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="card-tag">MENTAL HEALTH · STARTUP</span>
               <p class="card-desc">Website redesign for a mental health startup</p>
+              <p class="card-outcome">End-to-end website redesign for a mental health startup — built and shipped live</p>
             </div>
           </a>
 
@@ -131,6 +147,19 @@
               <span class="card-title">Spotify Customisable Widgets<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="card-tag">STREAMING · FEATURE DESIGN</span>
               <p class="card-desc">A design challenge to add a feature to a streaming platform</p>
+              <p class="card-outcome">Feature design under a 24-hour hard deadline</p>
+            </div>
+          </a>
+
+          <a class="card card--float" href="neo.html" id="case-neoboard" data-reveal>
+            <div class="card-cover-wrap" aria-hidden="true">
+              <img class="card-cover" src="homepage%20images/Neoboard.png" alt="" />
+            </div>
+            <div class="card-body">
+              <span class="card-title">Neoboard<svg class="card-title-arrow" width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 11L13 3M13 3H7.5M13 3V8.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="card-tag">EDTECH · PRODUCT DESIGN</span>
+              <p class="card-desc">Product design for an education productivity platform</p>
+              <p class="card-outcome">Redesigned a faculty dashboard for student retention as a UX intern</p>
             </div>
           </a>
 
