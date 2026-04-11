@@ -13,62 +13,81 @@
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
   <style>
-    /* Hero: dark blue field; ripples only a step lighter (same family) */
+    /* Hero: dark blue field; ripples originate from logo circle (.hero-ripples) */
     body.page-home .hero-card {
       position: relative;
       isolation: isolate;
       background-color: #0d3a4a;
-      /* Barely-there depth — stays close to base blue */
       background-image:
         radial-gradient(ellipse 110% 100% at 50% 0%, rgba(18, 62, 78, 0.55) 0%, transparent 42%),
         radial-gradient(ellipse 90% 70% at 50% 100%, rgba(10, 48, 60, 0.4) 0%, transparent 50%);
     }
-    body.page-home .hero-card::before,
-    body.page-home .hero-card::after {
+    body.page-home .hero-logo-wrap {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+    body.page-home .hero-ripples {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+    body.page-home .ss-logo.ss-logo--hero {
+      position: relative;
+      z-index: 1;
+    }
+    body.page-home .hero-card > .hero-logo-wrap {
+      z-index: 1;
+    }
+    body.page-home .hero-card > p {
+      position: relative;
+      z-index: 2;
+    }
+    body.page-home .hero-ripples::before,
+    body.page-home .hero-ripples::after {
       content: '';
       position: absolute;
       left: 50%;
-      top: 40%;
-      width: min(95%, 720px);
+      top: 50%;
+      width: min(110vw, 920px);
       aspect-ratio: 1;
       margin: 0;
       border-radius: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      z-index: 0;
-      /* Ripple core ~10–15% lighter than #0d3a4a, no bright cyan */
+      /* Visible but still on-brand: a bit lighter than #0d3a4a */
       background: radial-gradient(
         circle,
-        rgba(32, 88, 108, 0.5) 0%,
-        rgba(24, 72, 90, 0.28) 28%,
-        rgba(16, 58, 74, 0.08) 52%,
-        rgba(13, 58, 74, 0) 62%
+        rgba(52, 108, 128, 0.75) 0%,
+        rgba(36, 88, 108, 0.45) 22%,
+        rgba(22, 72, 90, 0.2) 45%,
+        rgba(13, 58, 74, 0) 58%
       );
     }
-    body.page-home .hero-card::before {
+    body.page-home .hero-ripples::before {
       animation: homeHeroRipple 2.8s ease-out infinite;
     }
-    body.page-home .hero-card::after {
+    body.page-home .hero-ripples::after {
       animation: homeHeroRipple 2.8s ease-out infinite;
       animation-delay: 1.4s;
     }
     @keyframes homeHeroRipple {
       0% {
-        transform: translate(-50%, -50%) scale(0.32);
-        opacity: 0.55;
+        transform: translate(-50%, -50%) scale(0.12);
+        opacity: 0.82;
       }
       100% {
-        transform: translate(-50%, -50%) scale(2.15);
+        transform: translate(-50%, -50%) scale(2.05);
         opacity: 0;
       }
     }
-    body.page-home .hero-card > * {
-      position: relative;
-      z-index: 1;
-    }
     @media (prefers-reduced-motion: reduce) {
-      body.page-home .hero-card::before,
-      body.page-home .hero-card::after {
+      body.page-home .hero-ripples::before,
+      body.page-home .hero-ripples::after {
         animation: none;
         opacity: 0;
       }
@@ -149,14 +168,17 @@
       <div class="hero-section">
         <div class="hero-card">
 
-          <div class="ss-logo ss-logo--hero" aria-label="SS logo">
-            <img
-              class="hero-logo-img"
-              src="homepage%20images/SS-logo.png"
-              alt=""
-              width="174"
-              height="178"
-            />
+          <div class="hero-logo-wrap">
+            <span class="hero-ripples" aria-hidden="true"></span>
+            <div class="ss-logo ss-logo--hero" aria-label="SS logo">
+              <img
+                class="hero-logo-img"
+                src="homepage%20images/SS-logo.png"
+                alt=""
+                width="174"
+                height="178"
+              />
+            </div>
           </div>
 
           <p class="hero-name-static">Shreya Shanmugam</p>
