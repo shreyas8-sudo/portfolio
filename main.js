@@ -48,6 +48,104 @@
 
   window.initHomeCaseStudyReveals = initHomeCaseStudyReveals;
 
+  /** Homepage hero: subtle 3D tilt + moving glare (pointer only; respects reduced motion) */
+  function initHeroCardTilt() {
+    var perspective = document.querySelector('.hero-card-perspective');
+    var card = document.getElementById('home-hero-card');
+    var glare = document.querySelector('.hero-card-glare');
+    if (!perspective || !card || perspective.dataset.heroTiltInit === '1') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    perspective.dataset.heroTiltInit = '1';
+
+    var maxRx = 7;
+    var maxRy = 9;
+    var maxShift = 6;
+    var raf = 0;
+    var targetRx = 0;
+    var targetRy = 0;
+    var targetPx = 0;
+    var targetPy = 0;
+    var curRx = 0;
+    var curRy = 0;
+    var curPx = 0;
+    var curPy = 0;
+    var targetRim = 128;
+    var curRim = 128;
+
+    function applyFrame() {
+      raf = 0;
+      var ease = 0.14;
+      var rimEase = 0.11;
+      curRx += (targetRx - curRx) * ease;
+      curRy += (targetRy - curRy) * ease;
+      curPx += (targetPx - curPx) * ease;
+      curPy += (targetPy - curPy) * ease;
+      curRim += (targetRim - curRim) * rimEase;
+      card.style.transform =
+        'perspective(1100px) rotateX(' +
+        curRx.toFixed(3) +
+        'deg) rotateY(' +
+        curRy.toFixed(3) +
+        'deg) translate3d(' +
+        curPx.toFixed(2) +
+        'px,' +
+        curPy.toFixed(2) +
+        'px,0)';
+      card.style.setProperty('--rim-angle', curRim.toFixed(2) + 'deg');
+      if (glare) {
+        var gx = 50 + curRy * (28 / maxRy);
+        var gy = 50 + curRx * (26 / maxRx);
+        glare.style.setProperty('--gx', gx.toFixed(2) + '%');
+        glare.style.setProperty('--gy', gy.toFixed(2) + '%');
+      }
+      if (
+        Math.abs(targetRx - curRx) > 0.02 ||
+        Math.abs(targetRy - curRy) > 0.02 ||
+        Math.abs(targetPx - curPx) > 0.05 ||
+        Math.abs(targetPy - curPy) > 0.05 ||
+        Math.abs(targetRim - curRim) > 0.25
+      ) {
+        raf = requestAnimationFrame(applyFrame);
+      }
+    }
+
+    function queueFrame() {
+      if (!raf) raf = requestAnimationFrame(applyFrame);
+    }
+
+    function onMove(e) {
+      var rect = card.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var nx = (e.clientX - cx) / (rect.width / 2);
+      var ny = (e.clientY - cy) / (rect.height / 2);
+      nx = Math.max(-1, Math.min(1, nx));
+      ny = Math.max(-1, Math.min(1, ny));
+      targetRx = -ny * maxRx;
+      targetRy = nx * maxRy;
+      targetPx = nx * maxShift;
+      targetPy = ny * maxShift;
+      /* Rim highlight: angle from card center toward cursor (conic-gradient axis) */
+      targetRim = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI);
+      perspective.classList.add('is-hero-hover');
+      queueFrame();
+    }
+
+    function onLeave() {
+      perspective.classList.remove('is-hero-hover');
+      targetRx = targetRy = 0;
+      targetPx = targetPy = 0;
+      targetRim = 128;
+      queueFrame();
+    }
+
+    perspective.addEventListener('mousemove', onMove, { passive: true });
+    perspective.addEventListener('mouseleave', onLeave);
+  }
+
+  window.initHeroCardTilt = initHeroCardTilt;
+
   /* PJAX home: shell has no #animScreen (only #page-body swapped) — show main + init reveals */
   var hasAnimScreen = !!document.getElementById('animScreen');
   var hasHomeCaseStudies = !!document.getElementById('case-studies');
@@ -68,6 +166,7 @@
     if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
     if (main) main.classList.add('show');
     initHomeCaseStudyReveals();
+    initHeroCardTilt();
   }
 
   if (sessionStorage.getItem(SKIP_KEY) === '1') {
@@ -217,6 +316,7 @@
     if (mainPage) mainPage.classList.add('show');
     markIntroComplete();
     initHomeCaseStudyReveals();
+    initHeroCardTilt();
 
     if (fly1) {
       circle.style.transition = 'opacity 0.4s ease';

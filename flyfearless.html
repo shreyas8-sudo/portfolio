@@ -8,10 +8,637 @@
   <link rel="icon" type="image/png" href="homepage%20images/SS-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
+  <style>
+    body.page-flyfearless .case-subnav-inner {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    body.page-flyfearless .case-subnav-inner a {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    /* Fly Fearless — links & back control (no default blue) */
+    body.page-flyfearless.page-case-study .case-inline-link {
+      color: #3d5a4d;
+      text-decoration-color: rgba(36, 102, 78, 0.42);
+    }
+    body.page-flyfearless.page-case-study .case-inline-link:hover,
+    body.page-flyfearless.page-case-study .case-inline-link:focus-visible {
+      color: var(--basis-green, #24664e);
+      text-decoration-color: var(--basis-green, #24664e);
+    }
+    body.page-flyfearless.page-case-study .case-inline-link:visited {
+      color: #355648;
+    }
+    /* Page typography — sage / forest (no navy #00354c) */
+    body.page-flyfearless.page-case-study .case-hero-copy {
+      color: var(--basis-green-dark, #1d5340);
+    }
+    body.page-flyfearless.page-case-study .case-hero .case-title {
+      color: #15261f;
+    }
+    body.page-flyfearless.page-case-study .case-meta-value,
+    body.page-flyfearless.page-case-study .case-p {
+      color: #2a4538;
+    }
+    body.page-flyfearless.page-case-study .case-h2,
+    body.page-flyfearless.page-case-study .case-h3 {
+      color: var(--basis-green-dark, #1d5340);
+    }
+    body.page-flyfearless.page-case-study nav.pill .nav-item.active {
+      color: var(--basis-green-dark, #1d5340);
+    }
+    body.page-flyfearless.page-case-study nav.pill .nav-item:not(.active):hover {
+      color: var(--basis-green-dark, #1d5340);
+    }
+    body.page-flyfearless.page-case-study .nav-pill-indicator {
+      background: rgba(102, 154, 128, 0.32);
+      border: 1px solid rgba(36, 102, 78, 0.38);
+    }
+    .ff-problem-statement {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--basis-green-dark, #1d5340);
+      margin: 1.35em 0 1.1em;
+      max-width: 40em;
+    }
+    .ff-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 1.35em 0 0;
+    }
+    .ff-metric {
+      background: rgba(102, 154, 128, 0.09);
+      border: 1px solid rgba(102, 154, 128, 0.22);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .ff-metric-num {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--basis-green-dark, #1d5340);
+      margin: 0 0 10px;
+    }
+    .ff-metric-label {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--basis-green-dark, #1d5340);
+      margin: 0;
+    }
+    .ff-hmw-block {
+      margin: 1.5em 0 0;
+      padding: 20px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 154, 128, 0.28);
+      background: rgba(102, 154, 128, 0.08);
+    }
+    .ff-hmw-block .case-p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .ff-split-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 20px;
+      align-items: start;
+      margin: 1.25em 0 0;
+    }
+    /* Unified emphasis — sage green, same weight & tracking */
+    #research .ff-split-copy > .case-p:first-child strong,
+    .ff-comp-kicker,
+    .ff-ideo-em,
+    .ff-ideo-ask .case-p strong,
+    p.case-p.ff-figure-label strong {
+      color: rgba(26, 77, 50, 0.88);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    /* Competitive rows: narrower image column, wider text */
+    .ff-split-row.ff-comp-pair {
+      grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+    }
+    .ff-split-row.ff-comp-pair--flip {
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+    }
+    /* Insight line after competitive analysis */
+    .ff-comp-insight {
+      margin-top: 1.35em;
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 154, 128, 0.28);
+      background: rgba(102, 154, 128, 0.09);
+    }
+    .ff-comp-insight .case-p {
+      margin: 0;
+      font-style: italic;
+    }
+    .ff-comp-pair .ff-split-media {
+      overflow: visible;
+    }
+    .ff-split-row:first-of-type {
+      margin-top: 1em;
+    }
+    .ff-split-media .case-figure-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .ff-split-media .case-figure-frame {
+      margin: 0;
+    }
+    .ff-comp-pair--flip .ff-split-media {
+      order: 2;
+    }
+    .ff-comp-pair--flip .ff-split-copy {
+      order: 1;
+      text-align: right;
+    }
+    .ff-placeholder {
+      width: 100%;
+      height: 300px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      text-align: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .ff-principles-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 1em 0 0;
+    }
+    .ff-principle-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      padding: 20px 16px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 154, 128, 0.22);
+      background: rgba(255, 255, 255, 0.75);
+    }
+    .ff-principle-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .ff-principle-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--basis-green-dark, #459675);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ff-principle-card > div:last-child {
+      width: 100%;
+    }
+    .ff-principle-card .case-p:not(.ff-principle-title) {
+      text-align: left;
+      max-width: 22em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ff-principle-card .case-p {
+      margin: 0;
+    }
+    .ff-principle-card .case-p.ff-principle-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .ff-ia-rounds {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px 20px;
+      align-items: start;
+      margin: 1.25em 0 0;
+      max-width: 100%;
+    }
+    .ff-ia-rounds__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+    .ff-ia-rounds__stack > div {
+      min-width: 0;
+    }
+    .ff-ia-rounds img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
+    .ff-ia-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 1.35em 0 0;
+    }
+    .ff-ia-mini-card {
+      padding: 14px 14px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(102, 154, 128, 0.2);
+      background: rgba(102, 154, 128, 0.06);
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+    .ff-ia-mini-card svg {
+      width: 22px;
+      height: 22px;
+      stroke: rgba(var(--accent-rgb), 0.85);
+      fill: none;
+      stroke-width: 1.5;
+      margin-top: 2px;
+    }
+    .ff-ia-mini-card .case-p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .ff-ia-mini-card .case-p strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+      color: rgba(26, 77, 50, 0.88);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .ff-ideo-ask {
+      margin: 1.25em 0 0;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 154, 128, 0.28);
+      background: rgba(102, 154, 128, 0.08);
+    }
+    .ff-ideo-ask .case-p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .ff-ideo-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 1.25em 0 0;
+      align-items: stretch;
+    }
+    .ff-ideo-row .case-figure-frame {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      min-height: 0;
+    }
+    .ff-ideo-row .case-figure-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+    }
+    /* Must beat case-study-themes.css body.page-flyfearless .case-deck-btn */
+    body.page-flyfearless.page-case-study .ff-ideo-proto-wrap {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+    }
+    body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 12px;
+      padding: 12px 22px;
+      letter-spacing: 0.06em;
+      background: #ffffff !important;
+      color: var(--basis-green, #669a80) !important;
+      border: 1px solid rgba(102, 154, 128, 0.65) !important;
+      box-shadow: none !important;
+      transform: none;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+    body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn:hover,
+    body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn:active {
+      background: var(--basis-green, #669a80) !important;
+      color: #ffffff !important;
+      border-color: var(--basis-green, #669a80) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(102, 154, 128, 0.35) !important;
+    }
+    body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn:focus-visible {
+      outline: 2px solid var(--basis-green, #669a80);
+      outline-offset: 3px;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn {
+      background: #ffffff !important;
+      color: #4a7a63 !important;
+      border-color: rgba(102, 154, 128, 0.7) !important;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn:hover,
+    html.theme-dark body.page-flyfearless.page-case-study .ff-ideo-proto-wrap .case-deck-btn:active {
+      background: var(--basis-green, #669a80) !important;
+      color: #ffffff !important;
+      border-color: var(--basis-green, #669a80) !important;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35) !important;
+    }
+    .ff-iter-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 12px 0 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(102, 154, 128, 0.2);
+    }
+    .ff-iter-card:first-of-type {
+      margin-top: 1em;
+    }
+    .ff-iter-before {
+      padding: 16px;
+      background: rgba(255, 200, 200, 0.35);
+      border-right: 1px solid rgba(180, 80, 80, 0.2);
+    }
+    .ff-iter-after {
+      padding: 16px;
+      background: rgba(200, 230, 210, 0.45);
+    }
+    .ff-iter-card .case-p {
+      margin: 0;
+    }
+    .ff-iter-card .ff-iter-col-label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    /* Ideation — even vertical rhythm */
+    #ideation .ff-ideo-ask {
+      margin-top: 1.25em;
+      margin-bottom: 0;
+    }
+    #ideation .ff-ideo-row {
+      margin-top: 1.35em;
+      margin-bottom: 0;
+    }
+    #ideation .ff-ideo-row + .case-p {
+      margin-top: 1.35em;
+    }
+    #ideation .case-p + .ff-ideo-row {
+      margin-top: 1.35em;
+    }
+    #ideation .ff-ideo-proto-wrap {
+      margin-top: 1.35em;
+      margin-bottom: 0;
+    }
+    /* Impact — no boxes; even spacing */
+    #impact .ff-impact-intro {
+      max-width: 42em;
+      margin-top: 0.65em;
+      margin-bottom: 0.15em;
+    }
+    #impact > .case-h3:first-of-type {
+      margin-bottom: 0.5em;
+    }
+    .ff-impact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      margin: 1.75em 0 0;
+    }
+    .ff-impact-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 28px 32px;
+      align-items: start;
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-sizing: border-box;
+    }
+    .ff-impact-feature-title {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      color: var(--basis-green-dark, #1d5340);
+      margin: 0 0 10px;
+    }
+    .ff-impact-copy ul {
+      margin: 0.55em 0 0;
+      padding-left: 1.15em;
+      list-style-type: disc;
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #2a4538;
+    }
+    .ff-impact-copy ul li {
+      margin: 0.4em 0;
+      padding-left: 0.12em;
+    }
+    .ff-impact-copy ul li::marker {
+      color: rgba(36, 102, 78, 0.55);
+    }
+    .ff-impact-media {
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      overflow: visible;
+      line-height: 0;
+    }
+    .ff-impact-item video {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 0;
+      pointer-events: none;
+    }
+    #impact .ff-testimonial-block {
+      margin-top: 2.75rem;
+      padding-top: 0;
+    }
+    #impact .ff-testimonial-block > .case-h3.case-h3--spaced {
+      margin-top: 0;
+    }
+    #impact .ff-testimonial-block .case-figure {
+      max-width: min(920px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ff-figure-label {
+      margin: 8px 0 0;
+    }
+    @media (max-width: 768px) {
+      .ff-metrics,
+      .ff-principles-row,
+      .ff-ia-rounds,
+      .ff-ideo-row {
+        grid-template-columns: 1fr;
+      }
+      .ff-impact-item {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .ff-split-row {
+        grid-template-columns: 1fr;
+      }
+      .ff-ia-mini-grid {
+        grid-template-columns: 1fr;
+      }
+      .ff-iter-card {
+        grid-template-columns: 1fr;
+      }
+      .ff-iter-before {
+        border-right: none;
+        border-bottom: 1px solid rgba(180, 80, 80, 0.2);
+      }
+      .ff-impact-item video {
+        max-width: 100%;
+      }
+    }
+    html.theme-dark .ff-problem-statement,
+    html.theme-dark .ff-metric-num,
+    html.theme-dark .ff-metric-label {
+      color: #c8d8d0;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-inline-link {
+      color: #9ec9b4;
+      text-decoration-color: rgba(122, 190, 158, 0.45);
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-inline-link:hover,
+    html.theme-dark body.page-flyfearless.page-case-study .case-inline-link:focus-visible {
+      color: var(--basis-green, #5cb38e);
+      text-decoration-color: var(--basis-green, #5cb38e);
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-inline-link:visited {
+      color: #8fbcaa;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-p,
+    html.theme-dark body.page-flyfearless.page-case-study .case-meta-value {
+      color: #c8d8d0;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-h2,
+    html.theme-dark body.page-flyfearless.page-case-study .case-h3 {
+      color: #e4f0ea;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .case-hero-copy {
+      color: #b8d4c8;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study nav.pill .nav-item:not(.active):hover {
+      color: #c8eadc;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study nav.pill .nav-item.active {
+      color: #0f1814;
+    }
+    html.theme-dark body.page-flyfearless.page-case-study .nav-pill-indicator {
+      background: rgba(92, 179, 142, 0.42);
+      border: 1px solid rgba(92, 179, 142, 0.55);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+    }
+    html.theme-dark .ff-metric {
+      background: rgba(92, 179, 142, 0.1);
+      border-color: rgba(92, 179, 142, 0.3);
+    }
+    html.theme-dark .ff-hmw-block {
+      background: rgba(92, 179, 142, 0.1);
+      border-color: rgba(92, 179, 142, 0.32);
+    }
+    html.theme-dark .ff-placeholder {
+      background: #2a3238;
+      color: #8a9399;
+    }
+    html.theme-dark .ff-principle-card,
+    html.theme-dark .ff-ia-mini-card {
+      background: rgba(20, 28, 36, 0.65);
+      border-color: rgba(92, 179, 142, 0.28);
+    }
+    html.theme-dark .ff-iter-before {
+      background: rgba(120, 50, 50, 0.25);
+      border-right-color: rgba(200, 100, 100, 0.25);
+    }
+    html.theme-dark .ff-iter-after {
+      background: rgba(50, 90, 60, 0.28);
+    }
+    html.theme-dark #research .ff-split-copy > .case-p:first-child strong,
+    html.theme-dark .ff-comp-kicker,
+    html.theme-dark .ff-ideo-em,
+    html.theme-dark .ff-ideo-ask .case-p strong,
+    html.theme-dark p.case-p.ff-figure-label strong {
+      color: rgba(165, 235, 210, 0.92);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    html.theme-dark .ff-comp-insight {
+      background: rgba(92, 179, 142, 0.1);
+      border-color: rgba(92, 179, 142, 0.32);
+    }
+    html.theme-dark .ff-ia-mini-card .case-p strong {
+      color: rgba(165, 235, 210, 0.92);
+    }
+    html.theme-dark .ff-ideo-ask {
+      background: rgba(92, 179, 142, 0.1);
+      border-color: rgba(92, 179, 142, 0.32);
+    }
+    html.theme-dark .ff-impact-copy ul li::marker {
+      color: rgba(142, 210, 185, 0.75);
+    }
+    html.theme-dark #impact .ff-impact-feature-title {
+      color: #e4f0ea;
+    }
+    html.theme-dark #impact .ff-impact-copy ul {
+      color: #c8d8d0;
+    }
+  </style>
 </head>
 <body class="page-case-study page-flyfearless">
 
@@ -41,7 +668,7 @@
           <p class="case-eyebrow">Fly Fearless Unlimited | Summer 2025</p>
           <h1 class="case-title">Redesigning a website to improve navigation and aesthetic</h1>
           <p class="case-lede">
-            Led the end-to-end redesign of the Fly Fearless website, improving usability, accessibility, and content hierarchy.
+            End-to-end website redesign for a faith-based healing brand &mdash; from usability audit to live site, in collaboration with PROJXON Consulting.
           </p>
         </div>
         <div class="case-hero-plate">
@@ -50,17 +677,6 @@
           </div>
         </div>
       </section>
-
-      <nav class="case-subnav" aria-label="Case study sections">
-        <div class="case-subnav-inner">
-          <a href="#context">Context</a>
-          <a href="#problem">Problem</a>
-          <a href="#process">Process</a>
-          <a href="#solution">Solution</a>
-          <a href="#testimonial">Testimonial</a>
-          <a href="#takeaways">Takeaways</a>
-        </div>
-      </nav>
 
       <main class="case-main">
         <div class="case-meta-grid" data-reveal>
@@ -82,143 +698,399 @@
           </div>
         </div>
 
-        <article class="case-article">
-          <section id="context" class="case-section case-anchor" data-reveal>
-            <h2 class="case-h2">Context</h2>
-            <h3 class="case-h3">Learning about Fly Fearless</h3>
-            <p class="case-p">
-              Fly Fearless is a faith-based healing movement dedicated to helping women and service members break toxic cycles and reclaim emotional, spiritual, and relational wholeness. Founded by Army veteran Lindsay Errico, the brand fosters personal transformation through coaching, workshops, and digital content.
-            </p>
-            <p class="case-p">
-              For the website redesign, I was first tasked with <strong>auditing the existing site and clarifying the project goals</strong>. Following my audit, I conducted user research by asking simple, targeted questions to uncover additional pain points, ensuring the redesign would address both organizational objectives and user needs.
-            </p>
-          </section>
+        <nav class="case-subnav" aria-label="Case study sections">
+          <div class="case-subnav-inner">
+            <a href="#problem">Problem</a>
+            <a href="#research">Research</a>
+            <a href="#decisions">Decisions</a>
+            <a href="#ideation">Ideation</a>
+            <a href="#iterations">Iterations</a>
+            <a href="#impact">Impact</a>
+          </div>
+        </nav>
 
+        <article class="case-article">
           <section id="problem" class="case-section case-anchor" data-reveal>
             <h2 class="case-h2">Problem</h2>
-            <h3 class="case-h3">Usability testing the existing website</h3>
             <p class="case-p">
-              I used the following questions to understand where pain points lie:
+              Fly Fearless is a faith-based healing movement founded by Army veteran Lindsay Errico, helping women and service members break toxic cycles and reclaim emotional, spiritual, and relational wholeness through coaching, workshops, and digital content. Lindsay came to me to redesign her website as part of a complete business rebrand &mdash; repositioning the brand in the market, growing her speaking presence, and increasing conversions.
             </p>
-            <ol class="case-ol">
-              <li><strong>Can you tell me what this website is about?</strong> <span class="case-ol-meta">(Time taken and correct answer)</span></li>
-              <li><strong>Who is the founder and can you find her story?</strong> <span class="case-ol-meta">(Time taken)</span></li>
-              <li><strong>Book a clarity call.</strong> <span class="case-ol-meta">(Time and completion rate)</span></li>
-              <li><strong>Find the &ldquo;Power to Choose&rdquo; coaching package.</strong> <span class="case-ol-meta">(Time taken)</span></li>
-            </ol>
+            <p class="ff-problem-statement">Users couldn&rsquo;t tell what this website was about in under 10 seconds.</p>
+            <img src="flyfearless-images/Usability.png" alt="" width="1400" height="900" loading="lazy" style="width: 100%; max-width: 100%; height: auto; display: block;" />
+            <div class="ff-metrics">
+              <div class="ff-metric">
+                <p class="ff-metric-num">4/5</p>
+                <p class="ff-metric-label">users failed to identify the brand&rsquo;s purpose within 10 seconds</p>
+              </div>
+              <div class="ff-metric">
+                <p class="ff-metric-num">68s</p>
+                <p class="ff-metric-label">was the average time to figure out what the website was about</p>
+              </div>
+              <div class="ff-metric">
+                <p class="ff-metric-num">33%</p>
+                <p class="ff-metric-label">task completion rate for booking a clarity call</p>
+              </div>
+            </div>
+            <div class="ff-hmw-block">
+              <p class="case-p">How might we redesign the Fly Fearless website so that users immediately understand the brand&rsquo;s purpose, can navigate intuitively, and feel compelled to take action &mdash; all while giving Lindsay a site she can maintain and grow on her own?</p>
+            </div>
+          </section>
 
-            <div class="case-process-split" data-reveal>
-              <figure class="case-figure case-figure--split">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="flyfearless-images/FF%20Old%20Home%20Page.jpg" alt="Previous Fly Fearless homepage" loading="lazy" width="1200" height="800" />
+          <section id="research" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Research</h2>
+
+            <h3 class="case-h3">Applying Nielsen&rsquo;s 10 Usability Heuristics</h3>
+            <p class="case-p">I audited the existing site against Nielsen&rsquo;s framework to move beyond gut feeling and into structured, communicable problems.</p>
+
+            <div class="ff-split-row">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/FF%20Old%20Home%20Page.jpg" alt="Previous Fly Fearless homepage" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p"><strong>Aesthetic and minimalist design</strong></p>
+                <p class="case-p">The header consumed a disproportionate amount of vertical space, and the homepage had more negative space than content, leaving users with nothing to anchor to on first load.</p>
+              </div>
+            </div>
+
+            <div class="ff-split-row">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/FF%20Old%20About%20Page%20Top.jpg" alt="Previous Fly Fearless About page" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p"><strong>Recognition rather than recall</strong></p>
+                <p class="case-p">The About page opened with a dense, unbroken block of text with no visual hierarchy. Users had to read everything to find anything &mdash; a direct failure of scannable, recognizable structure.</p>
+              </div>
+            </div>
+
+            <div class="ff-split-row">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/FF Old Offers Page (1).jpg" alt="Affinity map of research insights" loading="lazy" width="900" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p"><strong>Match between system and the real world</strong></p>
+                <p class="case-p">The word &lsquo;Offers&rsquo; implied discounts rather than professional services. Navigation labels and CTA language didn&rsquo;t match the mental models of the target audience - high-achieving women seeking coaching, not deals.</p>
+              </div>
+            </div>
+
+            <h3 class="case-h3 case-h3--spaced">Competitive Analysis &mdash; Conway Mentorship</h3>
+            <p class="case-p">We identified Conway Mentorship as our closest competitor and the clearest example of what Lindsay wanted Fly Fearless to feel like &mdash; <strong class="ff-comp-kicker">clean, credible, and conversion-focused.</strong></p>
+
+            <div class="ff-split-row ff-comp-pair">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/CW1.png" alt="Conway Mentorship homepage" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p">Strong visual hierarchy from the first scroll &mdash; bold headline, clear subheading, clean 5-tab nav. You know what this brand does and where to go within seconds.</p>
+              </div>
+            </div>
+
+            <div class="ff-split-row ff-comp-pair ff-comp-pair--flip">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/CW2.png" alt="Conway Mentorship social proof" loading="lazy" width="800" height="400" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p">Skimmable and conversion-focused throughout. Social proof numbers establish credibility instantly, and content offerings are broken into clean equal-weight cards.</p>
+              </div>
+            </div>
+
+            <div class="ff-split-row ff-comp-pair">
+              <div class="ff-split-media">
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/CW3.png" alt="Conway Mentorship founder story" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div class="ff-split-copy">
+                <p class="case-p">Founder story told concisely in a two-column layout &mdash; photo on the left, punchy and readable personal narrative on the right. </p>
+              </div>
+            </div>
+
+            <div class="ff-comp-insight">
+              <p class="case-p">The goal was to bring Conway&rsquo;s clarity and conversion logic to Fly Fearless&rsquo;s existing emotional depth.</p>
+            </div>
+
+            <h3 class="case-h3 case-h3--spaced">Design Principles</h3>
+            <div class="ff-principles-row">
+              <div class="ff-principle-card">
+                <div class="ff-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M2 12s3-6 10-6 10 6 10 6-3 6-10 6-10-6-10-6z"/></svg>
+                </div>
+                <div>
+                  <p class="case-p ff-principle-title">Hierarchy over decoration</p>
+                  <p class="case-p">Users should be able to scan any page and immediately understand what matters most &mdash; without having to read everything.</p>
+                </div>
+              </div>
+              <div class="ff-principle-card">
+                <div class="ff-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </div>
+                <div>
+                  <p class="case-p ff-principle-title">Earn trust before asking for action</p>
+                  <p class="case-p">Users need to understand who Lindsay is and what Fly Fearless offers before they&rsquo;re asked to engage. </p>
+                </div>
+              </div>
+              <div class="ff-principle-card">
+                <div class="ff-principle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><circle cx="15" cy="7" r="2"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="9" cy="12" r="2"/><line x1="3" y1="17" x2="21" y2="17"/><circle cx="17" cy="17" r="2"/></svg>
+                </div>
+                <div>
+                  <p class="case-p ff-principle-title">Familiar patterns, elevated execution</p>
+                  <p class="case-p">Users should never have to learn how to use this site. Navigation, CTAs, and page structure should feel instinctive. </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="decisions" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Design Decisions</h2>
+
+            <h3 class="case-h3">Information Architecture &mdash; restructuring content with business intent</h3>
+            <p class="case-p">The new sitemap wasn&rsquo;t just about fixing navigation. Every structural decision actively supported Lindsay&rsquo;s business goals. We went through multiple rounds of iteration before landing on the final architecture.</p>
+
+            <div class="ff-ia-rounds">
+              <div class="ff-ia-rounds__left">
+                <img src="flyfearless-images/Sitemap3.png" alt="Sitemap 2: initial ideation from existing site content" loading="lazy" width="400" height="280" />
+                <p class="case-p ff-figure-label"><strong>Sitemap 2</strong> &mdash; Inclusive of the offerings page and social media</p>
+              </div>
+              <div class="ff-ia-rounds__stack">
+                <div>
+                  <img src="flyfearless-images/sitemap-1.png" alt="Sitemap 1: first structural pass" loading="lazy" width="400" height="280" />
+                  <p class="case-p ff-figure-label"><strong>Sitemap 1</strong> &mdash; Starting point from the existing site structure.</p>
+                </div>
+                <div>
+                  <img src="flyfearless-images/Sitemapfinal.png" alt="Sitemap final: conversion-focused content hub" loading="lazy" width="400" height="280" />
+                  <p class="case-p ff-figure-label"><strong>Sitemap final</strong> &mdash; More conversion-focused by creating a hub for all her content, including socials and impact evidence.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ff-ia-mini-grid">
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <p class="case-p"><strong>Testimonials with star ratings</strong> Credibility surfaced before any conversion ask.</p>
+              </div>
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+                <p class="case-p"><strong>Socials and content in one place</strong> Turns the site into a hub for Lindsay&rsquo;s growing media presence.</p>
+              </div>
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <p class="case-p"><strong>Blog linked directly</strong> Active publishing signals a credible, living brand.</p>
+              </div>
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <p class="case-p"><strong>Published Works surfaced</strong> Low-friction entry point that also drives revenue.</p>
+              </div>
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                <p class="case-p"><strong>Services named clearly</strong> Clear naming, pricing, and next steps &mdash; no ambiguity while creating visual frameworks that are easy to update</p>
+              </div>
+              <div class="ff-ia-mini-card">
+                <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                <p class="case-p"><strong>Speaking as a business hub</strong> Positions Lindsay as a public figure, not just a coach.</p>
+              </div>
+            </div>
+
+            <h3 class="case-h3 case-h3--spaced">Brand Identity</h3>
+            <p class="case-p">With Lindsay&rsquo;s rebrand underway, we built a visual system she could maintain herself. The tagline was simplified to &lsquo;Heal. Rise. Fly.&rsquo; and the palette, typography, and components were aligned to the target audience: high-achieving women and service members who expect sophistication, not clutter.</p>
+            <p class="case-p">The design took inspiration from Conway Mentorship&rsquo;s visual simplicity &mdash; consistent icon weights, restrained color use, and a component library built for clarity. Font selection went through three rounds before landing on a pairing that balanced warmth with authority.</p>
+            <figure class="case-figure" data-reveal style="margin-top:1.25em;">
+              <div class="case-figure-frame">
+                <img class="case-figure-img" src="flyfearless-images/Design%20System.png" alt="Fly Fearless design system" loading="lazy" width="1400" height="900" />
+              </div>
+            </figure>
+            <p class="case-p ff-figure-label">The site was built in Ivorey CRM &mdash; a tool I learned on the job &mdash; which meant designing with maintainability in mind. Every section was templated so Lindsay could update content without touching the design.</p>
+          </section>
+
+          <section id="ideation" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Ideation</h2>
+            <h3 class="case-h3">From sketches to high fidelity &mdash; faster than planned</h3>
+            <p class="case-p">I began with hand-drawn sketches and low-fidelity wireframes to explore structural directions. When I presented these to Lindsay and the PROJXON team, the feedback was immediate &mdash; <strong class="ff-ideo-em">placeholders and bare structure made it impossible for non-design stakeholders to react meaningfully.</strong></p>
+            <div class="ff-ideo-ask">
+              <p class="case-p"><strong>Their ask:</strong> get it into high fidelity so we can actually respond to it.</p>
+            </div>
+
+            <div class="ff-ideo-row">
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/HomeL1.png" alt="Hand-drawn sketches" loading="lazy" width="400" height="300" />
+                  </div>
+                </figure>
+              </div>
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/HomeL2.png" alt="Lo-fi wireframes" loading="lazy" width="400" height="300" />
+                  </div>
+                </figure>
+              </div>
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/HomeL3.png" alt="Mid-fidelity screens" loading="lazy" width="400" height="300" />
+                  </div>
+                </figure>
+              </div>
+            </div>
+
+            <p class="case-p">This compressed the iteration cycle but improved the quality of feedback dramatically. Stakeholders gave sharper, more actionable notes once they could see real typography, real content, and real imagery in place.</p>
+
+            <div class="ff-ideo-row" data-reveal>
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/banner.png" alt="High-fidelity site banner" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/HomeM2.png" alt="High-fidelity homepage exploration" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+              <div>
+                <figure class="case-figure" style="margin:0;">
+                  <div class="case-figure-frame">
+                    <img class="case-figure-img" src="flyfearless-images/Home%20M3.png" alt="High-fidelity homepage screen" loading="lazy" width="800" height="600" />
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="ff-ideo-proto-wrap">
+              <a class="case-deck-btn" href="https://www.figma.com/proto/Fzhf9XGIUB2Ef2rqODKRom/Fly-fearless?node-id=10-11&amp;t=IVclZMzmWuhBSTz1-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=10%3A10&amp;starting-point-node-id=10%3A79&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">Mid-fidelity prototypes</a>
+            </div>
+          </section>
+
+          <section id="iterations" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Iterations</h2>
+            <h3 class="case-h3">Before feedback. After feedback.</h3>
+            <p class="case-p">After presenting to the PROJXON web development team, here&rsquo;s what changed and why.</p>
+
+            <div class="ff-iter-card">
+              <div class="ff-iter-before">
+                <p class="case-p ff-iter-col-label">Before</p>
+                <p class="case-p">Homepage felt flat &mdash; no texture or visual depth</p>
+              </div>
+              <div class="ff-iter-after">
+                <p class="case-p ff-iter-col-label">After</p>
+                <p class="case-p">Added texture through gradients and subtle patterns to create dimension and visual interest</p>
+              </div>
+            </div>
+            <div class="ff-iter-card">
+              <div class="ff-iter-before">
+                <p class="case-p ff-iter-col-label">Before</p>
+                <p class="case-p">Hero image featured an upset person &mdash; off-putting for the target audience</p>
+              </div>
+              <div class="ff-iter-after">
+                <p class="case-p ff-iter-col-label">After</p>
+                <p class="case-p">Removed the section entirely &mdash; it felt unnecessary and misaligned with the brand&rsquo;s tone of healing and strength</p>
+              </div>
+            </div>
+            <div class="ff-iter-card">
+              <div class="ff-iter-before">
+                <p class="case-p ff-iter-col-label">Before</p>
+                <p class="case-p">About page led with beliefs before introducing Lindsay</p>
+              </div>
+              <div class="ff-iter-after">
+                <p class="case-p ff-iter-col-label">After</p>
+                <p class="case-p">Restructured page order: About Lindsay &rarr; Video &rarr; It&rsquo;s Personal &rarr; Quote &rarr; We Believe &rarr; CTA</p>
+              </div>
+            </div>
+            <div class="ff-iter-card">
+              <div class="ff-iter-before">
+                <p class="case-p ff-iter-col-label">Before</p>
+                <p class="case-p">Services used inconsistent stock images and packages were unevenly spaced</p>
+              </div>
+              <div class="ff-iter-after">
+                <p class="case-p ff-iter-col-label">After</p>
+                <p class="case-p">Returned to the design system &mdash; regularized imagery and corrected spacing across all packages</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="impact" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Impact</h2>
+            <h3 class="case-h3">Key features of the redesigned site</h3>
+            <p class="case-p ff-impact-intro">The redesigned Fly Fearless site brings together clearer navigation and information architecture, a stronger content hierarchy, and a consistent brand identity that reflects Lindsay&rsquo;s mission.</p>
+            <div class="ff-impact-grid">
+              <div class="ff-impact-item">
+                <div class="ff-impact-copy">
+                  <h4 class="ff-impact-feature-title">Homepage and navigation</h4>
+                  <ul>
+                    <li>The homepage was rebuilt to communicate what Fly Fearless does within the first scroll &mdash; a bold headline, clear tagline, and sticky navigation with active states.</li>
+                    <li>The clarity call CTA moved from the nav to a persistent popup, keeping the primary conversion action visible without interrupting the browsing experience.</li>
+                    <li>Testimonials to add credibility</li>
+                  </ul>
+                </div>
+                <div class="ff-impact-media">
+                  <video autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+                    <source src="flyfearless-images/Home%20%2BNav.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+              <div class="ff-impact-item">
+                <div class="ff-impact-copy">
+                  <h4 class="ff-impact-feature-title">FAQ accordion</h4>
+                  <ul>
+                    <li>A dedicated Connect page brings FAQ and contact together in one place.</li>
+                    <li>The accordion pattern reduces cognitive load</li>
+                    <li>Moved the contact form to this page as well because that&rsquo;s where users tend to expect it</li>
+                  </ul>
+                </div>
+                <div class="ff-impact-media">
+                  <video autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+                    <source src="flyfearless-images/FAQ.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+              <div class="ff-impact-item">
+                <div class="ff-impact-copy">
+                  <h4 class="ff-impact-feature-title">Speaking and content hub</h4>
+                  <ul>
+                    <li>The Speaking page and Content tab work together to position her as a public figure</li>
+                    <li>Showcases her YouTube presence, published works, and social platforms &mdash; helps to build a brand.</li>
+                  </ul>
+                </div>
+                <div class="ff-impact-media">
+                  <video autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+                    <source src="flyfearless-images/Speaking%20%2BContent.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <div class="ff-testimonial-block">
+              <h3 class="case-h3 case-h3--spaced">Founder Testimonial</h3>
+              <figure class="case-figure" data-reveal style="margin-top:0.75em;">
+                <div class="case-figure-frame case-figure-frame--borderless">
+                  <img class="case-figure-img" src="flyfearless-images/Testimonial.png" alt="Founder testimonial on the Fly Fearless redesign" loading="lazy" width="1200" height="700" />
                 </div>
               </figure>
-              <figure class="case-figure case-figure--split">
-                <div class="case-figure-frame case-figure-frame--process-pair">
-                  <img class="case-figure-img" src="flyfearless-images/FF%20Old%20About%20Page%20Top.jpg" alt="Previous Fly Fearless About page" loading="lazy" width="1200" height="800" />
-                </div>
-              </figure>
             </div>
-            <p class="case-caption">Fig 1.1 and 1.2: Screenshots of the old website.</p>
-
-            <figure class="case-figure" data-reveal>
-              <div class="case-figure-frame">
-                <img class="case-figure-img" src="flyfearless-images/Insights.png" alt="Affinity map organizing research themes and insights" loading="lazy" width="1400" height="900" />
-              </div>
-              <figcaption class="case-caption">Fig 2: Synthesizing audit and usability findings into themes.</figcaption>
-            </figure>
-
-            <h3 class="case-h3 case-h3--spaced">Affinity mapping the results to find actionable insights</h3>
-            <p class="case-p"><strong>Actionable insights:</strong></p>
-            <ul class="case-bullet-list">
-              <li>More intuitive navigation for faster completion</li>
-              <li>Better communication of the brand</li>
-              <li>Better information architecture</li>
-              <li>Easy system for the founder to update</li>
-            </ul>
-          </section>
-
-          <section id="process" class="case-section case-anchor" data-reveal>
-            <h2 class="case-h2">Process</h2>
-            <h3 class="case-h3">Restructuring content</h3>
-            <div class="case-process-aside" data-reveal>
-              <div class="case-process-aside__body">
-                <p class="case-p">
-                  We went through multiple rounds of iteration before finalizing the new content structure. This process involved reviewing the existing website, identifying redundant or unclear sections, and deciding what needed to be added or removed to better communicate Lindsay&rsquo;s work.
-                </p>
-                <p class="case-p">
-                  The new IA maps primary journeys—who Fly Fearless serves, how coaching works, and where to book—so visitors don&rsquo;t have to hunt through overlapping pages. Each section on the diagram reflects a deliberate choice: fewer redundant labels, clearer groupings, and a path that mirrors how Lindsay talks about the work.
-                </p>
-              </div>
-              <div class="case-process-aside__media">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="flyfearless-images/Infoarch.png" alt="New site information architecture diagram" loading="lazy" width="1200" height="800" />
-                </div>
-                <p class="case-caption">Fig 3.1: The new site architecture with each section.</p>
-              </div>
-            </div>
-
-            <h3 class="case-h3 case-h3--spaced">New branding</h3>
-            <div class="case-process-aside case-process-aside--flip" data-reveal>
-              <div class="case-process-aside__media">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="flyfearless-images/Design%20System.png" alt="Fly Fearless design system — colour, type, and components" loading="lazy" width="1400" height="900" />
-                </div>
-                <p class="case-caption">Fig 3.2: New design system.</p>
-              </div>
-              <div class="case-process-aside__body">
-                <p class="case-p">
-                  With the color palette finalized, we focused on building a cohesive design system—refining typography, visual hierarchy, and assets. We simplified the tagline to &ldquo;Heal. Rise. Fly.&rdquo; and <strong>aligned the visual identity and structure with our target audience</strong>: high-achieving women in the military.
-                </p>
-                <p class="case-p">
-                  In my conversations with Lindsay, she emphasized the need for a <strong>clean, sophisticated, and easy-to-navigate</strong> website.
-                </p>
-              </div>
-            </div>
-
-            <h3 class="case-h3 case-h3--spaced">Iteration and constant feedback</h3>
-            <div class="case-process-aside" data-reveal>
-              <div class="case-process-aside__body">
-                <p class="case-p">
-                  I started with low-fidelity wireframes in Figma, then moved to mid-fidelity prototypes to gather clearer feedback from non-UX stakeholders. Through weekly iterations with Lindsay and the PROJXON team, I refined layouts, interactions, and content before transitioning to build.
-                </p>
-                <p class="case-p">
-                  I built the live site in <strong>Ivorey CRM</strong>, which meant translating Figma specs into a tool I was learning on the job—templating sections, checking responsiveness, and adjusting content so Lindsay could keep the site updated without relying on engineering for every change.
-                </p>
-              </div>
-              <div class="case-process-aside__media">
-                <div class="case-figure-frame">
-                  <img class="case-figure-img" src="flyfearless-images/ivorey%20crm.avif" alt="Fly Fearless site being built and published in Ivorey CRM" loading="lazy" width="1600" height="1000" />
-                </div>
-                <p class="case-caption">Fig 3.3: Building and publishing in Ivorey.</p>
-              </div>
-            </div>
-
-            <div class="case-deck-wrap">
-              <a class="case-deck-btn" href="https://www.figma.com/proto/Fzhf9XGIUB2Ef2rqODKRom/Fly-fearless?node-id=10-11&amp;p=f&amp;t=kEDG9bbsMpFX66ze-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=10%3A10&amp;starting-point-node-id=10%3A79&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">View mid-fidelity prototype</a>
-            </div>
-          </section>
-
-          <section id="solution" class="case-section case-anchor" data-reveal>
-            <h2 class="case-h2">Solution</h2>
-            <p class="case-p">
-              The live site brings together clearer navigation, a stronger content hierarchy, and branding that reflects Fly Fearless&rsquo;s mission—making it easier for visitors to understand the offer, find Lindsay&rsquo;s story, and take action (book a call, explore coaching, and engage with resources).
-            </p>
-            <figure class="case-figure" data-reveal>
-              <div class="case-figure-frame">
-                <img class="case-figure-img" src="flyfearless-images/FullSolution.png" alt="Fly Fearless redesigned website — key screens" loading="lazy" width="1600" height="1000" />
-              </div>
-              <figcaption class="case-caption">Final solution: responsive layouts and updated IA.</figcaption>
-            </figure>
-          </section>
-
-          <section id="testimonial" class="case-section case-anchor" data-reveal>
-            <h2 class="case-h2">Founder testimonial</h2>
-            <figure class="case-figure" data-reveal>
-              <div class="case-figure-frame">
-                <img class="case-figure-img" src="flyfearless-images/Testimonial.png" alt="Testimonial from Lindsay Errico on the redesign" loading="lazy" width="1200" height="700" />
-              </div>
-            </figure>
           </section>
 
           <section id="takeaways" class="case-section case-anchor" data-reveal>
@@ -231,7 +1103,7 @@
                 </div>
               </details>
               <details class="case-details">
-                <summary>Don&rsquo;t design from limitation—design where you want to be</summary>
+                <summary>Don&rsquo;t design from limitation&mdash;design where you want to be</summary>
                 <div class="case-details__body">
                   <p class="case-p">
                     This was something the CEO at PROJXON said to me that really stuck - Rather than limiting yourself to current and technical restrictions, design toward the experience you ultimately want users to have and figure out a way to get there.</p>

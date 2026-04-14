@@ -42,10 +42,10 @@ body.page-neo.page-case-study .case-hero-plate {
 }
 body.page-flyfearless.page-case-study .case-hero-plate {
   background: linear-gradient(
-    105deg,
-    rgba(36, 102, 78, 0.34) 0%,
-    rgba(232, 244, 238, 0.95) 55%,
-    #f7faf8 100%
+    115deg,
+    rgba(36, 102, 78, 0.2) 0%,
+    rgba(229, 240, 234, 0.98) 48%,
+    #eef4f0 100%
   );
 }
 body.page-spotify.page-case-study .case-hero-plate {
@@ -148,6 +148,10 @@ body.page-spotify.page-case-study .case-figure-frame {
   background: rgba(var(--accent-rgb), 0.04);
 }
 body.page-spotify.page-case-study .case-figure-frame.case-figure-frame--borderless {
+  border: none;
+  background: transparent;
+}
+body.page-flyfearless.page-case-study .case-figure-frame.case-figure-frame--borderless {
   border: none;
   background: transparent;
 }
@@ -293,7 +297,7 @@ body.page-flyfearless.page-case-study .case-ol {
   font-family: 'Albert Sans', system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.75;
-  color: #00354c;
+  color: #2a4538;
 }
 body.page-flyfearless.page-case-study .case-ol li {
   margin-bottom: 0.75em;

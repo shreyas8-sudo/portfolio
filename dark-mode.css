@@ -402,10 +402,10 @@ html.theme-dark body.page-flyfearless.page-case-study {
 }
 html.theme-dark body.page-flyfearless.page-case-study .case-hero-plate {
   background: linear-gradient(
-    105deg,
-    rgba(36, 102, 78, 0.28) 0%,
-    rgba(26, 40, 50, 0.95) 55%,
-    #141c24 100%
+    115deg,
+    rgba(36, 102, 78, 0.45) 0%,
+    rgba(22, 38, 32, 0.94) 48%,
+    #161f1c 100%
   );
 }
 html.theme-dark body.page-flyfearless.page-case-study .case-ol {
