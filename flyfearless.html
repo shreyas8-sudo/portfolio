@@ -518,6 +518,38 @@
     .ff-figure-label {
       margin: 8px 0 0;
     }
+    /* Conway competitive analysis: stack image above copy on tablet/phone (not only ≤768px) */
+    @media (max-width: 1024px) {
+      .ff-split-row.ff-comp-pair,
+      .ff-split-row.ff-comp-pair--flip {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .ff-split-row.ff-comp-pair--flip .ff-split-media {
+        order: 0;
+      }
+      .ff-split-row.ff-comp-pair--flip .ff-split-copy {
+        order: 1;
+        text-align: left;
+      }
+      .ff-split-row.ff-comp-pair .ff-split-media .case-figure-frame,
+      .ff-split-row.ff-comp-pair--flip .ff-split-media .case-figure-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+      }
+      .ff-split-row.ff-comp-pair .ff-split-media .case-figure-img,
+      .ff-split-row.ff-comp-pair--flip .ff-split-media .case-figure-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+    }
     @media (max-width: 768px) {
       body.page-flyfearless.page-case-study .case-header-inner {
         align-items: stretch;
@@ -584,31 +616,6 @@
       }
       .ff-ideo-row .case-figure-frame {
         aspect-ratio: 1 / 1;
-      }
-      .ff-split-row.ff-comp-pair--flip .ff-split-media {
-        order: 0;
-      }
-      .ff-split-row.ff-comp-pair--flip .ff-split-copy {
-        order: 1;
-        text-align: left;
-      }
-      /* Conway competitive analysis: same frame size (CW2 is wider/shorter intrinsically) */
-      .ff-split-row.ff-comp-pair .ff-split-media .case-figure-frame,
-      .ff-split-row.ff-comp-pair--flip .ff-split-media .case-figure-frame {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        overflow: hidden;
-      }
-      .ff-split-row.ff-comp-pair .ff-split-media .case-figure-img,
-      .ff-split-row.ff-comp-pair--flip .ff-split-media .case-figure-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
       }
       .ff-impact-item {
         grid-template-columns: 1fr;
