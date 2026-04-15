@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="homepage%20images/SS-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
@@ -341,9 +341,459 @@
         --tl-gutter: 2.35rem;
       }
     }
+
+    /* Basis — brand tokens + sections above Process; hero uses global case-study typography */
+    html {
+      scroll-behavior: smooth;
+    }
+    body.page-basis {
+      --basis-brand: #03796e;
+      --basis-brand-light: #dceceb;
+      --basis-brand-ink: #0d3f3a;
+      --basis-brand-border: rgba(3, 121, 110, 0.38);
+      --basis-brand-fill: rgba(3, 121, 110, 0.1);
+      /* Workflow “smooth” step + intervention line (same greens as diagram) */
+      --basis-wf-smooth-bg: #eaefea;
+      --basis-wf-smooth-border: #8dbd8d;
+      --basis-wf-line-teal: rgba(3, 121, 110, 0.35);
+    }
+    body.page-basis .basis-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 1.25em;
+      width: 100%;
+    }
+    /* Outcomes — same Basis system as HMW: brand fill, border, type scale */
+    body.page-basis .basis-stat-card {
+      background: linear-gradient(165deg, var(--basis-brand-fill) 0%, #f2f7f6 38%, #f8faf9 100%);
+      border: 1px solid var(--basis-brand-border);
+      border-radius: 12px;
+      padding: 22px 18px 20px;
+      box-sizing: border-box;
+      min-width: 0;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+    }
+    body.page-basis .basis-stat-num {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--basis-brand);
+      margin: 0 0 12px;
+    }
+    body.page-basis .basis-stat-label {
+      font-family: 'Fira Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--basis-brand);
+      margin: 0 0 10px;
+      line-height: 1.35;
+    }
+    body.page-basis .basis-stat-desc {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(13, 63, 58, 0.78);
+      margin: 0;
+    }
+    body.page-basis .basis-problem-preview {
+      margin: 1.5em 0 2em;
+    }
+    body.page-basis .basis-pain-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 1.5em;
+      width: 100%;
+    }
+    body.page-basis .basis-pain-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+    }
+    body.page-basis .basis-pain-row--3 .basis-pain-card {
+      flex: 1 1 min(200px, calc(33.333% - 12px));
+      max-width: min(320px, 100%);
+      min-width: min(180px, 100%);
+    }
+    body.page-basis .basis-pain-row--2 .basis-pain-card {
+      flex: 1 1 min(220px, calc(50% - 12px));
+      max-width: min(400px, 100%);
+      min-width: min(200px, 100%);
+    }
+    body.page-basis .basis-pain-card {
+      background: #f5f5f5;
+      border: 1px solid #dceceb;
+      border-radius: 12px;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    body.page-basis .basis-pain-icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 0 10px;
+      color: #03796e;
+      display: block;
+      flex-shrink: 0;
+    }
+    body.page-basis .basis-pain-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    body.page-basis .basis-pain-title {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #202020;
+      margin: 0 0 8px;
+      line-height: 1.3;
+    }
+    body.page-basis .basis-pain-desc {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6f6f6f;
+      margin: 0;
+      line-height: 1.45;
+    }
+    body.page-basis .basis-wf {
+      margin-top: 2em;
+    }
+    body.page-basis .basis-wf-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    body.page-basis .basis-wf-toggle {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: #f5f5f5;
+      color: #6f6f6f;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    body.page-basis .basis-wf-toggle.is-active {
+      background: #03796e;
+      color: #fff;
+    }
+    body.page-basis .basis-wf-toggle:focus-visible {
+      outline: 2px solid #03796e;
+      outline-offset: 2px;
+    }
+    body.page-basis .basis-wf-panel[hidden] {
+      display: none !important;
+    }
+    body.page-basis .basis-wf-scroll {
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      margin: 0 -8px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    body.page-basis .basis-wf-full-inner {
+      width: max-content;
+      max-width: none;
+      --basis-wf-card-w: 112px;
+      --basis-wf-arrow-gap: 18px;
+    }
+    body.page-basis .basis-wf-chain {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 0;
+      min-width: min-content;
+    }
+    body.page-basis .basis-wf-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    body.page-basis .basis-wf-arrow {
+      align-self: center;
+      color: #6f6f6f;
+      font-size: 14px;
+      padding: 0 2px 28px;
+      flex-shrink: 0;
+    }
+    body.page-basis .basis-wf-card {
+      width: 112px;
+      min-height: 118px;
+      border-radius: 10px;
+      border: 1px solid;
+      padding: 8px 8px 10px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    body.page-basis .basis-wf-card--interactive {
+      cursor: pointer;
+    }
+    body.page-basis .basis-wf-card--interactive:focus-visible {
+      outline: 2px solid #03796e;
+      outline-offset: 2px;
+    }
+    body.page-basis button.basis-wf-card {
+      appearance: none;
+      font: inherit;
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      display: block;
+      width: 112px;
+      text-align: left;
+    }
+    body.page-basis .basis-wf-step--smooth {
+      background: #eaefea;
+      border-color: #8dbd8d;
+    }
+    body.page-basis .basis-wf-step--friction {
+      background: #fef3dc;
+      border-color: #f0cf72;
+    }
+    body.page-basis .basis-wf-step--pain {
+      background: #fae4de;
+      border-color: #d06f76;
+    }
+    body.page-basis .basis-wf-step-num {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      color: #6f6f6f;
+      margin: 0 0 4px;
+    }
+    body.page-basis .basis-wf-step-label {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #202020;
+      line-height: 1.25;
+      margin: 0 0 4px;
+    }
+    body.page-basis .basis-wf-step-sub {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: #6f6f6f;
+      line-height: 1.3;
+      margin: 0;
+    }
+    body.page-basis .basis-wf-pain-slot {
+      min-height: 38px;
+      margin-top: 6px;
+      width: 112px;
+    }
+    body.page-basis .basis-wf-pain-tag {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 8px;
+      font-weight: 500;
+      color: #6f6f6f;
+      line-height: 1.25;
+      margin: 0;
+      padding: 4px 5px;
+      background: rgba(208, 111, 118, 0.12);
+      border-radius: 6px;
+      border: 1px solid rgba(208, 111, 118, 0.35);
+    }
+    /* Teal line spans steps 04–09 (includes arrow gaps; aligns with .basis-wf-chain) */
+    body.page-basis .basis-wf-intervention-line {
+      height: 0;
+      margin: 10px 0 0 8px;
+      margin-left: calc(8px + 3 * (var(--basis-wf-card-w) + var(--basis-wf-arrow-gap)));
+      width: calc(6 * var(--basis-wf-card-w) + 5 * var(--basis-wf-arrow-gap));
+      border-top: 2px solid rgba(3, 121, 110, 0.35);
+      box-sizing: border-box;
+    }
+    body.page-basis .basis-wf-bracket-flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: min-content;
+      margin: 0 0 0 8px;
+    }
+    body.page-basis .basis-wf-bracket-spacer-flex {
+      flex: 0 0 auto;
+      width: calc(3 * (var(--basis-wf-card-w) + var(--basis-wf-arrow-gap)));
+      min-height: 1px;
+    }
+    body.page-basis .basis-wf-bracket-inner {
+      flex: 0 0 auto;
+      width: calc(6 * var(--basis-wf-card-w) + 5 * var(--basis-wf-arrow-gap));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6px 4px 0;
+      box-sizing: border-box;
+    }
+    body.page-basis .basis-wf-bracket-logo {
+      height: auto;
+      max-height: 36px;
+      width: auto;
+      max-width: min(100%, 200px);
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+    body.page-basis .basis-wf-legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #6f6f6f;
+    }
+    body.page-basis .basis-wf-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    body.page-basis .basis-wf-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    body.page-basis .basis-wf-legend-dot--smooth {
+      background: #8dbd8d;
+    }
+    body.page-basis .basis-wf-legend-dot--friction {
+      background: #f0cf72;
+    }
+    body.page-basis .basis-wf-legend-dot--pain {
+      background: #d06f76;
+    }
+    body.page-basis .basis-wf-asset-head {
+      margin-bottom: 12px;
+    }
+    body.page-basis .basis-wf-asset-title {
+      font-family: 'Albert Sans', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #03796e;
+      margin: 0 0 12px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    body.page-basis .basis-hmw {
+      background: linear-gradient(165deg, #f6faf6 0%, var(--basis-wf-smooth-bg) 48%, var(--basis-wf-smooth-bg) 100%);
+      border: 2px solid var(--basis-wf-line-teal);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      box-sizing: border-box;
+      margin-top: 0;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75) inset;
+    }
+    body.page-basis .basis-hmw-label {
+      font-family: 'Fira Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--basis-brand);
+      margin: 0 0 18px;
+    }
+    body.page-basis .basis-hmw-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.5rem);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+      color: var(--basis-brand);
+      margin: 0 auto;
+      max-width: 720px;
+    }
+    @media (max-width: 768px) {
+      body.page-basis .basis-stat-row {
+        grid-template-columns: 1fr;
+      }
+      body.page-basis .basis-wf-intervention-line {
+        margin-left: 8px;
+        width: calc(100% - 16px);
+        max-width: 100%;
+      }
+      body.page-basis .basis-wf-bracket-spacer-flex {
+        display: none;
+        width: 0;
+        min-width: 0;
+        overflow: hidden;
+      }
+      body.page-basis .basis-wf-bracket-inner {
+        width: 100%;
+        max-width: 100%;
+      }
+      body.page-basis .basis-wf-bracket-flex {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+    html.theme-dark body.page-basis .basis-stat-card {
+      background: linear-gradient(165deg, rgba(3, 121, 110, 0.22) 0%, rgba(220, 236, 235, 0.07) 100%);
+      border-color: rgba(126, 212, 201, 0.42);
+      box-shadow: none;
+    }
+    html.theme-dark body.page-basis .basis-stat-num {
+      color: #9eeddf;
+    }
+    html.theme-dark body.page-basis .basis-stat-label {
+      color: #8ee0d4;
+    }
+    html.theme-dark body.page-basis .basis-stat-desc {
+      color: #c5ddd9;
+    }
+    html.theme-dark body.page-basis .basis-pain-card,
+    html.theme-dark body.page-basis .basis-wf-toggle:not(.is-active) {
+      background: rgba(30, 38, 42, 0.9);
+      border-color: rgba(220, 236, 235, 0.25);
+      color: #c5ddd9;
+    }
+    html.theme-dark body.page-basis .basis-pain-title {
+      color: #e4eaee;
+    }
+    html.theme-dark body.page-basis .basis-pain-icon {
+      color: #7ed4c9;
+    }
+    html.theme-dark body.page-basis .basis-pain-desc {
+      color: #a8b4bd;
+    }
+    html.theme-dark body.page-basis .basis-hmw {
+      background: linear-gradient(165deg, rgba(141, 189, 141, 0.14) 0%, rgba(3, 121, 110, 0.18) 55%, rgba(22, 32, 28, 0.92) 100%);
+      border: 2px solid var(--basis-wf-line-teal);
+      box-shadow: none;
+    }
+    html.theme-dark body.page-basis .basis-hmw-label {
+      color: #9eeddf;
+    }
+    html.theme-dark body.page-basis .basis-hmw-text {
+      color: #c8f0e8;
+    }
+    html.theme-dark body.page-basis .basis-wf-asset-title {
+      color: #7ed4c9;
+    }
   </style>
 </head>
-<body class="page-case-study">
+<body class="page-case-study page-basis">
 
   <div id="mainPage">
     <div class="page">
@@ -371,7 +821,7 @@
           <p class="case-eyebrow">Basis | Fall 2025</p>
           <h1 class="case-title">Simplifying workflows for cost segregation engineers</h1>
           <p class="case-lede">
-            Led end-to-end product design of Basis, a B2B SaaS AI copilot, translating founder insights and user research into a functional MVP.
+            Led end-to-end product design of Basis, a B2B SaaS AI copilot for cost segregation engineers.
           </p>
         </div>
         <div class="case-hero-plate">
@@ -384,6 +834,8 @@
       <nav class="case-subnav" aria-label="Case study sections">
         <div class="case-subnav-inner">
           <a href="#context">Context</a>
+          <a href="#problem">Problem</a>
+          <a href="#hmw">HMW</a>
           <a href="#solution">Solution</a>
           <a href="#process">Process</a>
           <a href="#impact">Impact</a>
@@ -414,7 +866,7 @@
         <article class="case-article">
           <section id="context" class="case-section case-anchor" data-reveal>
             <h2 class="case-h2">Context</h2>
-            <h3 class="case-h3">Thinking as a co-founder first and designer second</h3>
+            <h3 class="case-h3">Thinking as a co-founder first, designer second</h3>
             <p class="case-p">
               As part of the startup incubator <a class="case-inline-link" href="https://usclavalab.org/" target="_blank" rel="noopener noreferrer">LavaLab</a>, my co-founders and I were tasked with identifying a problem space and building a business venture within ten weeks.
             </p>
@@ -423,30 +875,36 @@
             </p>
 
             <h3 class="case-h3 case-h3--spaced">Outcomes</h3>
-            <ul class="case-outcome-list">
-              <li class="case-outcome-item">
-                <span class="case-outcome-title">Validated problem through 15+ user interviews</span>
-                <span class="case-outcome-sub">To build a holistic view of the problem.</span>
-              </li>
-              <li class="case-outcome-item">
-                <span class="case-outcome-title">Signed testing with 4 partners</span>
-                <span class="case-outcome-sub">Including larger firms in the industry such as CSSI.</span>
-              </li>
-              <li class="case-outcome-item">
-                <span class="case-outcome-title">Best Traction Award</span>
-                <span class="case-outcome-sub">LavaLab F25 Industry Pitch Competition.</span>
-              </li>
-            </ul>
+            <div class="basis-stat-row">
+              <div class="basis-stat-card">
+                <p class="basis-stat-num">15+</p>
+                <p class="basis-stat-label">user interviews</p>
+                <p class="basis-stat-desc">To build a holistic view of the problem</p>
+              </div>
+              <div class="basis-stat-card">
+                <p class="basis-stat-num">4</p>
+                <p class="basis-stat-label">signed partners</p>
+                <p class="basis-stat-desc">Including larger firms such as CSSI</p>
+              </div>
+              <div class="basis-stat-card">
+                <p class="basis-stat-num">#1</p>
+                <p class="basis-stat-label">Best Traction</p>
+                <p class="basis-stat-desc">LavaLab F25 Industry Pitch Competition</p>
+              </div>
+            </div>
           </section>
 
-          <section id="solution" class="case-section case-anchor" data-reveal>
-            <h2 class="case-h2">Solution</h2>
-            <h3 class="case-h3">Cost segregation studies are slow, expensive, and heavily manual</h3>
+          <section id="problem" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Problem</h2>
+            <h3 class="case-h3">The broken workflow</h3>
             <p class="case-p">
-              Professionals must cross-reference multiple ambiguous documents with no standardized input structure, leaving much of the analysis to estimation. As a result, a single residential study typically costs around <strong>$1,200</strong> and can take <strong>2-3 weeks</strong> to complete.
+              Cost segregation is a niche, U.S.-only field tied to the federal tax system. The workforce is aging with very few young professionals entering &mdash; and with no international market, the industry has limited room to grow its talent pipeline. Firms are under pressure to do more with less.
+            </p>
+            <p class="case-p">
+              For engineers inside these firms, the day-to-day is a compounding set of manual, high-stakes tasks. A single residential study costs around $1,200 and takes 2&ndash;3 weeks to complete &mdash; mostly due to manual work with no standardized process.
             </p>
 
-            <div class="case-solution-preview-strip" data-reveal>
+            <div class="basis-problem-preview case-solution-preview-strip" data-reveal>
               <div class="case-solution-preview-cell">
                 <img src="basis-images/Solution%20Previw1.png" alt="Solution preview 1" loading="lazy" width="800" height="500" />
               </div>
@@ -458,6 +916,238 @@
               </div>
             </div>
 
+            <h3 class="case-h3 case-h3--spaced">Hurdles in our process</h3>
+            <div class="basis-pain-grid" aria-label="Key pain points">
+              <div class="basis-pain-row basis-pain-row--3">
+                <div class="basis-pain-card">
+                  <span class="basis-pain-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </span>
+                  <p class="basis-pain-title">Confidential data</p>
+                  <p class="basis-pain-desc">Firms were reluctant to share sensitive property and financial information with new tools</p>
+                </div>
+                <div class="basis-pain-card">
+                  <span class="basis-pain-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </span>
+                  <p class="basis-pain-title">Job displacement fear</p>
+                  <p class="basis-pain-desc">Engineers worried AI would replace them &mdash; making early conversations difficult</p>
+                </div>
+                <div class="basis-pain-card">
+                  <span class="basis-pain-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 12h4"/><path d="M10 16h4"/><path d="M8 8h.01"/></svg>
+                  </span>
+                  <p class="basis-pain-title">No standardized input</p>
+                  <p class="basis-pain-desc">Documents arrive in different formats with no consistent structure</p>
+                </div>
+              </div>
+              <div class="basis-pain-row basis-pain-row--2">
+                <div class="basis-pain-card">
+                  <span class="basis-pain-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  </span>
+                  <p class="basis-pain-title">Tool switching</p>
+                  <p class="basis-pain-desc">Engineers cross-reference photos, appraisals, sketches and notes across 4+ tools</p>
+                </div>
+                <div class="basis-pain-card">
+                  <span class="basis-pain-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </span>
+                  <p class="basis-pain-title">Legal liability</p>
+                  <p class="basis-pain-desc">Every classification must be IRS-defensible &mdash; licensed sign-off is legally required</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="case-h3 case-h3--spaced">Workflow overview</h3>
+            <div class="basis-wf">
+              <div class="basis-wf-toggles" role="tablist" aria-label="Workflow view">
+                <button type="button" class="basis-wf-toggle is-active" id="basis-wf-toggle-full" role="tab" aria-selected="true" aria-controls="basis-wf-panel-full" data-view="full">Full Workflow</button>
+                <button type="button" class="basis-wf-toggle" id="basis-wf-toggle-asset" role="tab" aria-selected="false" aria-controls="basis-wf-panel-asset" data-view="asset">Asset Classification</button>
+              </div>
+
+              <div class="basis-wf-panel" id="basis-wf-panel-full" role="tabpanel" aria-labelledby="basis-wf-toggle-full">
+                <div class="basis-wf-scroll">
+                  <div class="basis-wf-full-inner">
+                    <div class="basis-wf-chain">
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--smooth">
+                          <p class="basis-wf-step-num">01</p>
+                          <p class="basis-wf-step-label">Client Onboarding</p>
+                          <p class="basis-wf-step-sub">Receive property info &amp; sign engagement</p>
+                        </div>
+                        <div class="basis-wf-pain-slot" aria-hidden="true"></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--friction">
+                          <p class="basis-wf-step-num">02</p>
+                          <p class="basis-wf-step-label">Document Collection</p>
+                          <p class="basis-wf-step-sub">Gather blueprints, appraisals, invoices</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ No standardized format for docs</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--friction">
+                          <p class="basis-wf-step-num">03</p>
+                          <p class="basis-wf-step-label">Site Visit &amp; Photo Capture</p>
+                          <p class="basis-wf-step-sub">Photographer captures every room &amp; asset</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Photos unstructured, often mislabeled</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--pain">
+                          <p class="basis-wf-step-num">04</p>
+                          <p class="basis-wf-step-label">Photo Organization</p>
+                          <p class="basis-wf-step-sub">Manually sort, label &amp; match to assets</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Entire job role exists just for this</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--pain">
+                          <p class="basis-wf-step-num">05</p>
+                          <p class="basis-wf-step-label">Document Cross-Reference</p>
+                          <p class="basis-wf-step-sub">Validate each asset across 4+ tools</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Tool-switching kills focus &amp; time</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <button type="button" class="basis-wf-card basis-wf-step--pain basis-wf-card--interactive" id="basis-wf-step-06" aria-label="Asset Classification — open detailed view">
+                          <p class="basis-wf-step-num">06</p>
+                          <p class="basis-wf-step-label">Asset Classification</p>
+                          <p class="basis-wf-step-sub">Assign depreciation category per asset</p>
+                        </button>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ High ambiguity + legal liability</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--pain">
+                          <p class="basis-wf-step-num">07</p>
+                          <p class="basis-wf-step-label">Quality Review</p>
+                          <p class="basis-wf-step-sub">Senior engineer checks for IRS defensibility</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Blind review &mdash; no source links</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--pain">
+                          <p class="basis-wf-step-num">08</p>
+                          <p class="basis-wf-step-label">Report Generation</p>
+                          <p class="basis-wf-step-sub">Manually compile client deliverable</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Fully manual, no structured output</p></div>
+                      </div>
+                      <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                      <div class="basis-wf-col">
+                        <div class="basis-wf-card basis-wf-step--friction">
+                          <p class="basis-wf-step-num">09</p>
+                          <p class="basis-wf-step-label">Sign-off &amp; Delivery</p>
+                          <p class="basis-wf-step-sub">Licensed professional signs &amp; delivers</p>
+                        </div>
+                        <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ AI legally cannot do this</p></div>
+                      </div>
+                    </div>
+                    <div class="basis-wf-intervention-line" aria-hidden="true"></div>
+                    <div class="basis-wf-bracket-flex">
+                      <div class="basis-wf-bracket-spacer-flex" aria-hidden="true"></div>
+                      <div class="basis-wf-bracket-inner">
+                        <img class="basis-wf-bracket-logo" src="basis-images/Logo-Green.png" alt="Basis" width="200" height="48" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="basis-wf-legend" aria-label="Color legend">
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--smooth" aria-hidden="true"></span> Smooth</span>
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--friction" aria-hidden="true"></span> Friction</span>
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--pain" aria-hidden="true"></span> High pain / AI risk</span>
+                </div>
+              </div>
+
+              <div class="basis-wf-panel" id="basis-wf-panel-asset" role="tabpanel" aria-labelledby="basis-wf-toggle-asset" hidden>
+                <div class="basis-wf-asset-head">
+                  <p class="basis-wf-asset-title">Asset classification in detail</p>
+                </div>
+                <div class="basis-wf-scroll">
+                  <div class="basis-wf-chain">
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">01</p>
+                        <p class="basis-wf-step-label">Pull up asset individually</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot" aria-hidden="true"></div>
+                    </div>
+                    <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">02</p>
+                        <p class="basis-wf-step-label">View photos, floor plan, docs</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ 4+ tools open at once</p></div>
+                    </div>
+                    <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">03</p>
+                        <p class="basis-wf-step-label">Determine dep. category</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Ambiguous IRS guidelines</p></div>
+                    </div>
+                    <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">04</p>
+                        <p class="basis-wf-step-label">Find source document</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ Docs scattered, hard to trace</p></div>
+                    </div>
+                    <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">05</p>
+                        <p class="basis-wf-step-label">Flag ambiguous assets</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ No system to track flags</p></div>
+                    </div>
+                    <span class="basis-wf-arrow" aria-hidden="true">→</span>
+                    <div class="basis-wf-col">
+                      <div class="basis-wf-card basis-wf-step--pain">
+                        <p class="basis-wf-step-num">06</p>
+                        <p class="basis-wf-step-label">Record &amp; document</p>
+                        <p class="basis-wf-step-sub">&nbsp;</p>
+                      </div>
+                      <div class="basis-wf-pain-slot"><p class="basis-wf-pain-tag">⚠ 100% manual, no structure</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="basis-wf-legend" aria-label="Color legend">
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--smooth" aria-hidden="true"></span> Smooth</span>
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--friction" aria-hidden="true"></span> Friction</span>
+                  <span><span class="basis-wf-legend-dot basis-wf-legend-dot--pain" aria-hidden="true"></span> High pain / AI risk</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="hmw" class="case-section case-anchor" data-reveal>
+            <div class="basis-hmw">
+              <p class="basis-hmw-label">Design Question</p>
+              <p class="basis-hmw-text">
+                How might we reduce the manual burden of cost segregation analysis without removing the professional judgment that makes it legally defensible?
+              </p>
+            </div>
+          </section>
+
+          <section id="solution" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Solution</h2>
             <h3 class="case-h3 case-h3--spaced case-h3--roman">Presenting: Basis</h3>
             <div class="case-presenting">
             <p class="case-p">
@@ -733,5 +1423,45 @@
 
   <script src="case-study.js"></script>
   <script src="nav.js"></script>
+  <script>
+    (function () {
+      var fullBtn = document.getElementById('basis-wf-toggle-full');
+      var assetBtn = document.getElementById('basis-wf-toggle-asset');
+      var panelFull = document.getElementById('basis-wf-panel-full');
+      var panelAsset = document.getElementById('basis-wf-panel-asset');
+      var step06 = document.getElementById('basis-wf-step-06');
+      if (!fullBtn || !assetBtn || !panelFull || !panelAsset) return;
+
+      function showFull() {
+        panelFull.hidden = false;
+        panelAsset.hidden = true;
+        fullBtn.classList.add('is-active');
+        assetBtn.classList.remove('is-active');
+        fullBtn.setAttribute('aria-selected', 'true');
+        assetBtn.setAttribute('aria-selected', 'false');
+      }
+
+      function showAsset() {
+        panelFull.hidden = true;
+        panelAsset.hidden = false;
+        fullBtn.classList.remove('is-active');
+        assetBtn.classList.add('is-active');
+        fullBtn.setAttribute('aria-selected', 'false');
+        assetBtn.setAttribute('aria-selected', 'true');
+      }
+
+      fullBtn.addEventListener('click', showFull);
+      assetBtn.addEventListener('click', showAsset);
+      if (step06) {
+        step06.addEventListener('click', showAsset);
+        step06.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showAsset();
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
