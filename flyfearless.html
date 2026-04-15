@@ -551,10 +551,9 @@
       }
     }
     @media (max-width: 768px) {
-      body.page-flyfearless.page-case-study .case-header-inner {
-        align-items: stretch;
-      }
+      /* Keep header column centered (stretch was shifting the logo left); nav still full-width for scroll */
       body.page-flyfearless.page-case-study .case-header-inner .nav-wrap {
+        align-self: stretch;
         justify-content: flex-start;
         width: 100%;
         max-width: 100%;
