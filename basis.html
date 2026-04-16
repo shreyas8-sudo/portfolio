@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="homepage%20images/SS-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Fira+Mono:wght@400;500&family=Albert+Sans:wght@400;600;700;800&family=Inter:wght@400;600;700&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study-themes.css" />
   <link rel="stylesheet" href="dark-mode.css" />
@@ -123,7 +123,6 @@
       width: 100%;
       height: auto;
       border-radius: 12px;
-      vertical-align: top;
     }
     @media (max-width: 640px) {
       #process .basis-process-intro-pair__row .case-figure--intro-zoom,
@@ -357,6 +356,44 @@
       --basis-wf-smooth-border: #8dbd8d;
       --basis-wf-line-teal: rgba(3, 121, 110, 0.35);
     }
+    body.page-basis .case-subnav {
+      overflow-x: hidden;
+    }
+    body.page-basis .case-subnav-inner {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    body.page-basis .case-subnav-inner::-webkit-scrollbar {
+      display: none;
+    }
+    body.page-basis .case-subnav-inner a {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      letter-spacing: 0.16em;
+    }
+    body.page-basis .case-meta-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    body.page-basis .case-meta-grid::-webkit-scrollbar {
+      display: none;
+    }
+    body.page-basis .case-meta-block {
+      flex: 0 0 min(280px, 34vw);
+      min-width: 220px;
+    }
     body.page-basis .basis-stat-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -404,6 +441,13 @@
     body.page-basis .basis-problem-preview {
       margin: 1.5em 0 2em;
     }
+    body.page-basis .case-feature-shot video {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: top center;
+    }
     body.page-basis .basis-pain-grid {
       display: flex;
       flex-direction: column;
@@ -430,7 +474,7 @@
       min-width: min(200px, 100%);
     }
     body.page-basis .basis-pain-card {
-      background: #f5f5f5;
+      background: #e9f5ef;
       border: 1px solid #dceceb;
       border-radius: 12px;
       padding: 24px;
@@ -725,8 +769,57 @@
       max-width: 720px;
     }
     @media (max-width: 768px) {
+      body.page-basis .case-meta-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 14px;
+        margin-bottom: 36px;
+        padding-bottom: 28px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      body.page-basis .case-meta-grid::-webkit-scrollbar {
+        display: none;
+      }
+      body.page-basis .case-meta-block {
+        flex: 0 0 min(240px, 70vw);
+      }
+      body.page-basis .case-subnav-inner {
+        gap: 24px;
+      }
       body.page-basis .basis-stat-row {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      body.page-basis .basis-stat-row::-webkit-scrollbar {
+        display: none;
+      }
+      body.page-basis .basis-stat-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+        min-width: calc((100% - 20px) / 3);
+        padding: 16px 12px 14px;
+      }
+      body.page-basis .basis-stat-num {
+        font-size: clamp(1.25rem, 4.2vw, 1.6rem);
+        margin-bottom: 8px;
+      }
+      body.page-basis .basis-stat-label {
+        font-size: 9px;
+        margin-bottom: 6px;
+      }
+      body.page-basis .basis-stat-desc {
+        font-size: 11px;
+        line-height: 1.35;
+      }
+      body.page-basis .basis-problem-preview {
+        display: none;
       }
       body.page-basis .basis-wf-intervention-line {
         margin-left: 8px;
@@ -791,6 +884,419 @@
     html.theme-dark body.page-basis .basis-wf-asset-title {
       color: #7ed4c9;
     }
+
+    /* Basis - Research, Competitive Landscape, Brand Direction */
+    body.page-basis :is(#research, #competitive, #brand) .case-p {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #6f6f6f;
+    }
+    body.page-basis :is(#research, #competitive, #brand) .case-p:last-child {
+      margin-bottom: 0;
+    }
+    body.page-basis :is(#research, #competitive, #brand) .case-caption,
+    body.page-basis :is(#research, #competitive, #brand) .basis-finding-cap,
+    body.page-basis :is(#research, #competitive, #brand) .basis-brand-cap {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #6f6f6f;
+    }
+    body.page-basis #research .basis-research-intro {
+      margin-bottom: 1.5em;
+    }
+    body.page-basis .basis-finding {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 24px 32px;
+      align-items: start;
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #dceceb;
+    }
+    body.page-basis .basis-finding:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    body.page-basis .basis-finding-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #03796e;
+      margin: 0 0 14px;
+    }
+    body.page-basis .basis-finding-chain {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px 20px;
+    }
+    body.page-basis .basis-finding-col-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #03796e;
+      margin: 0 0 8px;
+    }
+    body.page-basis .basis-finding-col-body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #6f6f6f;
+      margin: 0;
+    }
+    body.page-basis .basis-finding-visual {
+      min-width: 0;
+    }
+    body.page-basis .basis-finding-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+    }
+    body.page-basis .basis-finding-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    body.page-basis .basis-finding-photo-wrap {
+      position: relative;
+    }
+    body.page-basis .basis-finding-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fae4de;
+      color: #d06f76;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    body.page-basis .basis-finding-cap {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #6f6f6f;
+      margin: 10px 0 0;
+    }
+    body.page-basis .basis-finding-quote {
+      margin: 0;
+      padding: 24px;
+      border-left: 3px solid #03796e;
+      border-radius: 12px;
+      border: 1px solid #dceceb;
+      background: #e9f5ef;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #202020;
+    }
+    @media (max-width: 900px) {
+      body.page-basis .basis-finding {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 520px) {
+      body.page-basis .basis-finding-chain {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    body.page-basis #competitive .basis-compete-intro {
+      margin-bottom: 1.25em;
+    }
+    body.page-basis .basis-compete-matrix-top {
+      margin-bottom: 0;
+    }
+    body.page-basis .basis-compete-matrix-main {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    }
+    body.page-basis .basis-compete-competitors {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin-top: 2em;
+      direction: ltr;
+    }
+    body.page-basis .basis-compete-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-areas: 'compete-text compete-media';
+      gap: 24px 32px;
+      align-items: start;
+      direction: ltr;
+    }
+    body.page-basis .basis-compete-row-text {
+      grid-area: compete-text;
+      min-width: 0;
+    }
+    body.page-basis .basis-compete-block-title {
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #202020;
+      margin: 0 0 12px;
+      line-height: 1.3;
+    }
+    body.page-basis .basis-compete-block-body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #6f6f6f;
+      margin: 0;
+    }
+    body.page-basis .basis-compete-row-media {
+      grid-area: compete-media;
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+    body.page-basis .basis-compete-row-media img {
+      display: block;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    body.page-basis .basis-compete-takeaway-h {
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #202020;
+      margin: 2em 0 1em;
+      line-height: 1.3;
+    }
+    body.page-basis .basis-compete-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+    }
+    body.page-basis .basis-compete-card {
+      background: #f5f5f5;
+      border: 1px solid #dceceb;
+      border-radius: 12px;
+      padding: 24px;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    body.page-basis .basis-compete-check {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #03796e;
+      margin: 0 0 10px;
+      line-height: 1;
+    }
+    body.page-basis .basis-compete-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #202020;
+      margin: 0 0 8px;
+      line-height: 1.3;
+    }
+    body.page-basis .basis-compete-desc {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6f6f6f;
+      margin: 0;
+      line-height: 1.45;
+    }
+    @media (max-width: 720px) {
+      body.page-basis .basis-compete-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      body.page-basis .basis-compete-row {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          'compete-text'
+          'compete-media';
+      }
+      body.page-basis .basis-compete-row-media {
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 480px) {
+      body.page-basis .basis-compete-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    body.page-basis #brand .basis-brand-intro {
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #202020;
+      max-width: 640px;
+      margin: 0 0 2em;
+    }
+    body.page-basis .basis-brand-split {
+      display: grid;
+      grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+      gap: 32px 40px;
+      align-items: start;
+    }
+    body.page-basis .basis-brand-pillars {
+      min-width: 0;
+    }
+    body.page-basis .basis-brand-pillar + .basis-brand-pillar {
+      margin-top: 40px;
+    }
+    body.page-basis .basis-brand-pillar-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #03796e;
+      margin: 0 0 16px;
+    }
+    body.page-basis .basis-brand-pillar-text {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #6f6f6f;
+      margin: 0;
+    }
+    body.page-basis .basis-brand-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      min-width: 0;
+    }
+    body.page-basis .basis-brand-visual-item {
+      margin: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
+    }
+    body.page-basis .basis-brand-visual-img {
+      display: block;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    body.page-basis #brand .basis-brand-cap {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #6f6f6f;
+      margin: 10px 0 0;
+      text-align: center;
+    }
+    body.page-basis .basis-brand-full {
+      margin: 24px 0 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    body.page-basis .basis-brand-full-img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    @media (max-width: 900px) {
+      body.page-basis .basis-brand-split {
+        grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+        gap: 20px;
+      }
+      body.page-basis #brand .basis-brand-intro {
+        font-size: 18px;
+        margin-bottom: 1.4em;
+      }
+      body.page-basis .basis-brand-pillar + .basis-brand-pillar {
+        margin-top: 24px;
+      }
+      body.page-basis .basis-brand-pillar-label {
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+      body.page-basis .basis-brand-pillar-text {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      body.page-basis .basis-brand-visual-stack {
+        gap: 16px;
+      }
+      body.page-basis #brand .basis-brand-cap {
+        font-size: 11px;
+      }
+      body.page-basis .basis-brand-full {
+        margin-top: 16px;
+      }
+    }
+
+    html.theme-dark body.page-basis #research .basis-finding-col-label {
+      color: #7ed4c9;
+    }
+    html.theme-dark body.page-basis .basis-compete-title,
+    html.theme-dark body.page-basis .basis-compete-block-title,
+    html.theme-dark body.page-basis .basis-compete-takeaway-h {
+      color: #e4eaee;
+    }
+    html.theme-dark body.page-basis #brand .basis-brand-intro {
+      color: #e4eaee;
+    }
+    html.theme-dark body.page-basis .basis-brand-pillar-label {
+      color: #8ee0d4;
+    }
+    html.theme-dark body.page-basis #research .basis-finding-col-body,
+    html.theme-dark body.page-basis .basis-finding-cap,
+    html.theme-dark body.page-basis .basis-compete-desc,
+    html.theme-dark body.page-basis .basis-compete-block-body,
+    html.theme-dark body.page-basis #brand .basis-brand-cap,
+    html.theme-dark body.page-basis .basis-brand-pillar-text {
+      color: #a8b4bd;
+    }
+    html.theme-dark body.page-basis .basis-finding {
+      border-bottom-color: rgba(220, 236, 235, 0.2);
+    }
+    html.theme-dark body.page-basis .basis-finding-quote {
+      background: rgba(30, 38, 42, 0.9);
+      color: #e4eaee;
+      border-left-color: #7ed4c9;
+      border-color: rgba(220, 236, 235, 0.22);
+    }
+    html.theme-dark body.page-basis .basis-compete-card {
+      background: rgba(30, 38, 42, 0.85);
+      border-color: rgba(220, 236, 235, 0.22);
+    }
+    html.theme-dark body.page-basis .basis-compete-matrix-main {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
   </style>
 </head>
 <body class="page-case-study page-basis">
@@ -836,6 +1342,9 @@
           <a href="#context">Context</a>
           <a href="#problem">Problem</a>
           <a href="#hmw">HMW</a>
+          <a href="#research">Research</a>
+          <a href="#competitive">Competitive</a>
+          <a href="#brand">Brand</a>
           <a href="#solution">Solution</a>
           <a href="#process">Process</a>
           <a href="#impact">Impact</a>
@@ -1146,6 +1655,183 @@
             </div>
           </section>
 
+          <section id="research" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Research</h2>
+            <p class="case-p basis-research-intro">
+              None of us had a background in cost segregation. Before designing anything, we interviewed almost every person in the workflow: retired specialists, practicing engineers, photo organizers, sales leaders, podcast hosts, and CEOs of firms both small and large.
+            </p>
+
+            <div class="basis-finding">
+              <div class="basis-finding-main">
+                <p class="basis-finding-label">Finding 01</p>
+                <div class="basis-finding-chain">
+                  <div>
+                    <p class="basis-finding-col-label">Data</p>
+                    <p class="basis-finding-col-body">When we showed our first prototype to a retired cost segregation specialist, the response was immediate: the workflow has too many judgment calls for AI to handle alone. A license is required to sign off on every study. AI cannot do that.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Insight</p>
+                    <p class="basis-finding-col-body">The core problem wasn&rsquo;t speed - it was confidence. Every AI output needs to be traceable back to source documentation and legally defensible.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Consequence</p>
+                    <p class="basis-finding-col-body">Reframed the entire product around traceability. Rethought the full information architecture from scratch. V1 was immediately invalidated.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-finding-visual">
+                <div class="basis-finding-stack">
+                  <div class="basis-finding-stack-item">
+                    <div class="basis-finding-photo-wrap">
+                      <span class="basis-finding-tag">No human in the loop</span>
+                      <img src="basis-images/V1_screen.png" alt="V1 prototype screen" width="900" height="600" loading="lazy" />
+                    </div>
+                    <p class="basis-finding-cap">V1 prototype - our first assumption was that AI could handle everything. It was immediately invalidated.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="basis-finding">
+              <div class="basis-finding-main">
+                <p class="basis-finding-label">Finding 02</p>
+                <div class="basis-finding-chain">
+                  <div>
+                    <p class="basis-finding-col-label">Data</p>
+                    <p class="basis-finding-col-body">We discovered that some people&rsquo;s entire job is manually sorting, labeling, and matching property photos to asset categories - a task so time-consuming it warranted its own dedicated role.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Insight</p>
+                    <p class="basis-finding-col-body">The biggest bottleneck wasn&rsquo;t analysis - it was evidence organization. Engineers were drowning in unstructured photos before they could even begin classifying.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Consequence</p>
+                    <p class="basis-finding-col-body">Designed a unified document view so engineers could view, annotate, and reference photos without ever leaving the interface.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-finding-visual">
+                <img src="basis-images/Image-org.png" alt="Manual photo organization: unstructured image files" width="900" height="600" loading="lazy" />
+                <p class="basis-finding-cap">The manual photo organization reality - hundreds of raw files, no structure, no standardized naming.</p>
+              </div>
+            </div>
+
+            <div class="basis-finding">
+              <div class="basis-finding-main">
+                <p class="basis-finding-label">Finding 03</p>
+                <div class="basis-finding-chain">
+                  <div>
+                    <p class="basis-finding-col-label">Data</p>
+                    <p class="basis-finding-col-body">Engineers and firm owners were hesitant to engage with us at all. Two reasons came up repeatedly: cost segregation involves highly confidential property and financial data, and many engineers feared our product would replace their jobs entirely.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Insight</p>
+                    <p class="basis-finding-col-body">The product needed to visibly keep engineers in control - not just technically, but perceptually. Trust had to be designed in, not assumed.</p>
+                  </div>
+                  <div>
+                    <p class="basis-finding-col-label">Consequence</p>
+                    <p class="basis-finding-col-body">Built human-in-the-loop checkpoints at every major stage. Made override and approval actions prominent so engineers always felt like the final authority.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-finding-visual">
+                <blockquote class="basis-finding-quote">
+                  Engineers needed to see that Basis made them better at their job - not redundant.
+                </blockquote>
+              </div>
+            </div>
+          </section>
+
+          <section id="competitive" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Competitive Landscape</h2>
+            <p class="case-p basis-compete-intro">Studying existing tools helped define what Basis needed to be.</p>
+
+            <div class="basis-compete-matrix-top">
+              <img class="basis-compete-matrix-main" src="basis-images/Competition.png" alt="Competitive landscape comparison matrix" width="1200" height="800" loading="lazy" />
+            </div>
+
+            <div class="basis-compete-competitors">
+              <div class="basis-compete-row">
+                <div class="basis-compete-row-text">
+                  <h3 class="basis-compete-block-title">SegStream</h3>
+                  <p class="basis-compete-block-body">Built for seasoned specialists, powerful but dense. The worksheet interface surfaces granular classification data with identifying details for each component, which engineers actually need. But the navigation is overwhelming and there is no AI assistance anywhere in the workflow.</p>
+                </div>
+                <div class="basis-compete-row-media">
+                  <img src="basis-images/Segstream.png" alt="SegStream product interface" width="800" height="500" loading="lazy" />
+                </div>
+              </div>
+              <div class="basis-compete-row">
+                <div class="basis-compete-row-text">
+                  <h3 class="basis-compete-block-title">Segmenti AI</h3>
+                  <p class="basis-compete-block-body">Gets the upload and document viewing experience right, clean, accessible, easy to pull up files throughout the process. But it is fully AI-automated with no human review built in. Still in beta, it carries openly low confidence scores on its outputs, a dealbreaker in an industry where every classification needs a licensed sign-off.</p>
+                </div>
+                <div class="basis-compete-row-media">
+                  <img src="basis-images/SegmentiAI.png" alt="Segmenti AI product interface" width="800" height="500" loading="lazy" />
+                </div>
+              </div>
+            </div>
+
+            <h3 class="basis-compete-takeaway-h">What we took from each</h3>
+            <div class="basis-compete-cards">
+              <div class="basis-compete-card">
+                <p class="basis-compete-check" aria-hidden="true">✓</p>
+                <p class="basis-compete-title">Human-in-the-loop</p>
+                <p class="basis-compete-desc">Borrowed from what Segmenti gets wrong</p>
+              </div>
+              <div class="basis-compete-card">
+                <p class="basis-compete-check" aria-hidden="true">✓</p>
+                <p class="basis-compete-title">Clean navigation</p>
+                <p class="basis-compete-desc">The antidote to SegStream&rsquo;s density</p>
+              </div>
+              <div class="basis-compete-card">
+                <p class="basis-compete-check" aria-hidden="true">✓</p>
+                <p class="basis-compete-title">Key details per classification</p>
+                <p class="basis-compete-desc">The one thing SegStream gets right</p>
+              </div>
+              <div class="basis-compete-card">
+                <p class="basis-compete-check" aria-hidden="true">✓</p>
+                <p class="basis-compete-title">Easy doc viewing throughout</p>
+                <p class="basis-compete-desc">The one thing Segmenti gets right</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="brand" class="case-section case-anchor" data-reveal>
+            <h2 class="case-h2">Brand Direction</h2>
+            <p class="basis-brand-intro">Six weeks in, we scrapped the brand. It looked like a startup. It needed to look like a tool.</p>
+
+            <div class="basis-brand-split">
+              <div class="basis-brand-pillars">
+                <div class="basis-brand-pillar">
+                  <p class="basis-brand-pillar-label">Color</p>
+                  <p class="basis-brand-pillar-text">Most competitors defaulted to blue. We went green deliberately, green signals money, growth, and financial precision. The warm browns and dusty rose accents add a wallet-and-wealth association, grounded in what the industry actually does. The palette stays muted for extended screen time, engineers spend hours in this tool.</p>
+                </div>
+                <div class="basis-brand-pillar">
+                  <p class="basis-brand-pillar-label">Logo</p>
+                  <p class="basis-brand-pillar-text">The rounded square motif used throughout the UI, in cards, tags, and inputs, is carried directly into the logo mark. The shape also echoes a document, a form, a data field, the exact artifacts engineers work with every day.</p>
+                </div>
+                <div class="basis-brand-pillar">
+                  <p class="basis-brand-pillar-label">Design system</p>
+                  <p class="basis-brand-pillar-text">We added tags throughout the design system to make components skimmable at a glance, so the team could move fast without hunting for the right element.</p>
+                </div>
+              </div>
+              <div class="basis-brand-visual-stack">
+                <figure class="basis-brand-visual-item">
+                  <img class="basis-brand-visual-img" src="basis-images/Brand%201.png" alt="Brand direction option 1" loading="lazy" />
+                  <figcaption class="basis-brand-cap">Initial branding</figcaption>
+                </figure>
+                <figure class="basis-brand-visual-item">
+                  <img class="basis-brand-visual-img" src="basis-images/Brand2.png" alt="Brand direction option 2" loading="lazy" />
+                  <figcaption class="basis-brand-cap">Final branding</figcaption>
+                </figure>
+              </div>
+            </div>
+            <figure class="basis-brand-full">
+              <img class="basis-brand-full-img" src="basis-images/design_system-basis.png" alt="Basis design system overview" loading="lazy" />
+              <figcaption class="basis-brand-cap">Final design system</figcaption>
+            </figure>
+          </section>
+
           <section id="solution" class="case-section case-anchor" data-reveal>
             <h2 class="case-h2">Solution</h2>
             <h3 class="case-h3 case-h3--spaced case-h3--roman">Presenting: Basis</h3>
@@ -1162,20 +1848,26 @@
               <div class="case-feature case-feature--media-left" data-reveal>
                 <div class="case-feature-media">
                   <div class="case-feature-shot">
-                    <img src="basis-images/Feature1.webp" alt="Human-in-the-loop workflows" loading="lazy" width="900" height="700" />
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Human-in-the-loop workflows preview">
+                      <source src="basis-images/Sol1.mp4" type="video/mp4" />
+                    </video>
                   </div>
+                  <p class="case-caption">Categorizing images and documentation into separate rooms/categories.</p>
                 </div>
                 <div class="case-feature-copy">
-                  <h4 class="case-feature-title">Human-in-the-loop workflows</h4>
-                  <p class="case-p">Because cost segregation relies on professional judgment, Basis was designed with review, override, and approval checkpoints.</p>
+                  <h4 class="case-feature-title">Automating redundant tasks</h4>
+                  <p class="case-p">Basis automates repetitive tasks like extracting information, classifying rooms and organizing evidence so engineers can focus on higher-value judgment calls.</p>
                 </div>
               </div>
 
               <div class="case-feature case-feature--media-left" data-reveal>
                 <div class="case-feature-media">
                   <div class="case-feature-shot">
-                    <img src="basis-images/Feature%202.png" alt="Cross-referencing in one place" loading="lazy" width="900" height="700" />
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Cross-referencing in one place preview">
+                      <source src="basis-images/sol2..mp4" type="video/mp4" />
+                    </video>
                   </div>
+                  <p class="case-caption">Cross-referencing classifications with IRS guidelines and documentation.</p>
                 </div>
                 <div class="case-feature-copy">
                   <h4 class="case-feature-title">Cross-referencing in one place</h4>
@@ -1186,12 +1878,15 @@
               <div class="case-feature case-feature--media-left" data-reveal>
                 <div class="case-feature-media">
                   <div class="case-feature-shot">
-                    <img src="basis-images/Feature%203.png" alt="Automating redundant tasks" loading="lazy" width="900" height="700" />
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Automating redundant tasks preview">
+                      <source src="basis-images/sol3.mp4" type="video/mp4" />
+                    </video>
                   </div>
+                  <p class="case-caption">Ability to edit and verify work done by our model.</p>
                 </div>
                 <div class="case-feature-copy">
-                  <h4 class="case-feature-title">Automating redundant tasks</h4>
-                  <p class="case-p">Basis automates repetitive tasks like extracting information, classifying rooms and organizing evidence so engineers can focus on higher-value judgment calls.</p>
+                  <h4 class="case-feature-title">Human-in-the-loop workflows</h4>
+                  <p class="case-p">Because cost segregation relies on professional judgment, Basis was designed with review, override, and approval checkpoints.</p>
                 </div>
               </div>
             </div>
