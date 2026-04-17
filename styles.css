@@ -614,21 +614,32 @@ footer {
     min-width: 0;
     box-sizing: border-box;
   }
+  /* One horizontal row: scroll the pill strip instead of wrapping */
   .nav-wrap {
     padding-top: 0;
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    justify-content: center;
-    overflow-x: visible;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-wrap::-webkit-scrollbar {
+    display: none;
   }
   nav.pill {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
     align-content: center;
-    row-gap: 6px;
+    flex-shrink: 0;
+    width: max-content;
+    min-width: min-content;
+    max-width: none;
+    row-gap: 0;
     column-gap: 0;
-    max-width: 100%;
     padding: 3px;
   }
   nav.pill .nav-item {

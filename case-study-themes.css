@@ -458,3 +458,48 @@ body.page-spotify.page-case-study .case-process-callout .case-p strong {
 }
 
 /* Subnav mobile layout (single row + horizontal scroll, 24px gutters) lives in styles.css for all .page-case-study pages. */
+
+/* Basis case study — Brand Direction copy matches global case study body/caption typography */
+body.page-basis.page-case-study #brand .basis-brand-intro {
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #4a5156;
+  max-width: none;
+  margin: 0 0 1.25em;
+}
+body.page-basis.page-case-study .basis-brand-pillar-text {
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: #4a5156;
+  margin: 0;
+}
+body.page-basis.page-case-study #brand .basis-brand-cap {
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #5c8571;
+  margin: 10px 0 0;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  body.page-basis.page-case-study #brand .basis-brand-intro,
+  body.page-basis.page-case-study .basis-brand-pillar-text {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  body.page-basis.page-case-study #brand .basis-brand-cap {
+    font-size: 12px;
+  }
+}
+html.theme-dark body.page-basis.page-case-study #brand .basis-brand-intro,
+html.theme-dark body.page-basis.page-case-study .basis-brand-pillar-text {
+  color: #a8b4bd;
+}
+html.theme-dark body.page-basis.page-case-study #brand .basis-brand-cap {
+  color: #8fb3a0;
+}

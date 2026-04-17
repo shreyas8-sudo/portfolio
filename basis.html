@@ -860,14 +860,11 @@
       body.page-basis .basis-pain-row .basis-pain-card:last-child {
         grid-column: 1 / -1;
       }
-      body.page-basis .basis-brand-split {
-        grid-template-columns: 1fr;
+      body.page-basis .basis-brand-layout {
         gap: 20px;
       }
-      body.page-basis .basis-brand-visual-stack {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+      body.page-basis .basis-brand-branding-row {
+        gap: 12px;
       }
     }
     html.theme-dark body.page-basis .basis-stat-card {
@@ -952,10 +949,10 @@
       padding-bottom: 0;
     }
     body.page-basis .basis-finding-label {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Fira Mono', monospace;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #03796e;
       margin: 0 0 14px;
@@ -966,9 +963,11 @@
       gap: 16px 20px;
     }
     body.page-basis .basis-finding-col-label {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
+      font-family: 'Fira Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: #03796e;
       margin: 0 0 8px;
     }
@@ -1027,9 +1026,10 @@
       border-radius: 12px;
       border: 1px solid #dceceb;
       background: #e9f5ef;
-      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-family: 'Playfair Display', Georgia, serif;
       font-size: 20px;
-      font-weight: 400;
+      font-weight: 500;
+      font-style: normal;
       line-height: 1.45;
       color: #202020;
     }
@@ -1077,9 +1077,10 @@
       min-width: 0;
     }
     body.page-basis .basis-compete-block-title {
-      font-family: 'Instrument Sans', system-ui, sans-serif;
-      font-size: 18px;
-      font-weight: 700;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
       color: #202020;
       margin: 0 0 12px;
       line-height: 1.3;
@@ -1108,9 +1109,10 @@
       border-radius: 8px;
     }
     body.page-basis .basis-compete-takeaway-h {
-      font-family: 'Instrument Sans', system-ui, sans-serif;
-      font-size: 18px;
-      font-weight: 700;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
       color: #202020;
       margin: 2em 0 1em;
       line-height: 1.3;
@@ -1173,20 +1175,19 @@
       }
     }
 
-    body.page-basis #brand .basis-brand-intro {
-      font-family: 'Instrument Sans', system-ui, sans-serif;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #202020;
-      max-width: 640px;
-      margin: 0 0 2em;
-    }
-    body.page-basis .basis-brand-split {
+    /* Brand Direction layout (typography for intro/body/captions: case-study-themes.css) */
+    body.page-basis .basis-brand-layout {
       display: grid;
       grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
-      gap: 32px 40px;
+      grid-template-areas:
+        'brandcopy brandpair'
+        'brandsys brandsys';
+      gap: 28px 40px;
       align-items: start;
+    }
+    body.page-basis .basis-brand-text-block {
+      grid-area: brandcopy;
+      min-width: 0;
     }
     body.page-basis .basis-brand-pillars {
       min-width: 0;
@@ -1195,23 +1196,16 @@
       margin-top: 40px;
     }
     body.page-basis .basis-brand-pillar-label {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Fira Mono', monospace;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #03796e;
       margin: 0 0 16px;
     }
-    body.page-basis .basis-brand-pillar-text {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.55;
-      color: #6f6f6f;
-      margin: 0;
-    }
-    body.page-basis .basis-brand-visual-stack {
+    body.page-basis .basis-brand-branding-row {
+      grid-area: brandpair;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -1233,17 +1227,10 @@
       object-fit: contain;
       border-radius: 8px;
     }
-    body.page-basis #brand .basis-brand-cap {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #6f6f6f;
-      margin: 10px 0 0;
-      text-align: center;
-    }
     body.page-basis .basis-brand-full {
-      margin: 24px 0 0;
+      grid-area: brandsys;
+      margin: 0;
+      display: block;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
@@ -1257,14 +1244,25 @@
       object-fit: contain;
       border-radius: 8px;
     }
-    @media (max-width: 900px) {
-      body.page-basis .basis-brand-split {
-        grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
-        gap: 20px;
+    /* Brand: stack text full width, then 2-up branding, then design system (tablet + phone) */
+    @media (max-width: 1024px) {
+      body.page-basis .basis-brand-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          'brandcopy'
+          'brandpair'
+          'brandsys';
+        gap: 24px;
       }
-      body.page-basis #brand .basis-brand-intro {
-        font-size: 18px;
-        margin-bottom: 1.4em;
+      body.page-basis .basis-brand-branding-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+    @media (max-width: 900px) {
+      body.page-basis .basis-brand-layout {
+        gap: 20px;
       }
       body.page-basis .basis-brand-pillar + .basis-brand-pillar {
         margin-top: 24px;
@@ -1272,19 +1270,6 @@
       body.page-basis .basis-brand-pillar-label {
         font-size: 10px;
         margin-bottom: 10px;
-      }
-      body.page-basis .basis-brand-pillar-text {
-        font-size: 13px;
-        line-height: 1.45;
-      }
-      body.page-basis .basis-brand-visual-stack {
-        gap: 16px;
-      }
-      body.page-basis #brand .basis-brand-cap {
-        font-size: 11px;
-      }
-      body.page-basis .basis-brand-full {
-        margin-top: 16px;
       }
     }
 
@@ -1296,18 +1281,13 @@
     html.theme-dark body.page-basis .basis-compete-takeaway-h {
       color: #e4eaee;
     }
-    html.theme-dark body.page-basis #brand .basis-brand-intro {
-      color: #e4eaee;
-    }
     html.theme-dark body.page-basis .basis-brand-pillar-label {
       color: #8ee0d4;
     }
     html.theme-dark body.page-basis #research .basis-finding-col-body,
     html.theme-dark body.page-basis .basis-finding-cap,
     html.theme-dark body.page-basis .basis-compete-desc,
-    html.theme-dark body.page-basis .basis-compete-block-body,
-    html.theme-dark body.page-basis #brand .basis-brand-cap,
-    html.theme-dark body.page-basis .basis-brand-pillar-text {
+    html.theme-dark body.page-basis .basis-compete-block-body {
       color: #a8b4bd;
     }
     html.theme-dark body.page-basis .basis-finding {
@@ -1338,19 +1318,20 @@
       margin: 0 0 40px;
     }
     body.page-basis #iterations .basis-iter-feature-label {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Fira Mono', monospace;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #03796e;
       margin: 0 0 8px;
     }
     body.page-basis #iterations .basis-iter-feature-title {
-      font-family: 'Instrument Sans', system-ui, sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1.25;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.125rem, 3.2vw, 1.5rem);
+      font-weight: 500;
+      font-style: normal;
+      line-height: 1.3;
       color: #202020;
       margin: 0 0 12px;
     }
@@ -1992,24 +1973,25 @@
 
           <section id="brand" class="case-section case-anchor" data-reveal>
             <h2 class="case-h2">Brand Direction</h2>
-            <p class="basis-brand-intro">Six weeks in, we scrapped the brand. It looked like a startup. It needed to look like a tool.</p>
-
-            <div class="basis-brand-split">
-              <div class="basis-brand-pillars">
-                <div class="basis-brand-pillar">
-                  <p class="basis-brand-pillar-label">Color</p>
-                  <p class="basis-brand-pillar-text">Most competitors defaulted to blue. We went green deliberately, green signals money, growth, and financial precision. The warm browns and dusty rose accents add a wallet-and-wealth association, grounded in what the industry actually does. The palette stays muted for extended screen time, engineers spend hours in this tool.</p>
-                </div>
-                <div class="basis-brand-pillar">
-                  <p class="basis-brand-pillar-label">Logo</p>
-                  <p class="basis-brand-pillar-text">The rounded square motif used throughout the UI, in cards, tags, and inputs, is carried directly into the logo mark. The shape also echoes a document, a form, a data field, the exact artifacts engineers work with every day.</p>
-                </div>
-                <div class="basis-brand-pillar">
-                  <p class="basis-brand-pillar-label">Design system</p>
-                  <p class="basis-brand-pillar-text">We added tags throughout the design system to make components skimmable at a glance, so the team could move fast without hunting for the right element.</p>
+            <div class="basis-brand-layout">
+              <div class="basis-brand-text-block">
+                <p class="basis-brand-intro">Six weeks in, we scrapped the brand. It looked like a startup. It needed to look like a tool.</p>
+                <div class="basis-brand-pillars">
+                  <div class="basis-brand-pillar">
+                    <p class="basis-brand-pillar-label">Color</p>
+                    <p class="basis-brand-pillar-text">Most competitors defaulted to blue. We went green deliberately, green signals money, growth, and financial precision. The warm browns and dusty rose accents add a wallet-and-wealth association, grounded in what the industry actually does. The palette stays muted for extended screen time, engineers spend hours in this tool.</p>
+                  </div>
+                  <div class="basis-brand-pillar">
+                    <p class="basis-brand-pillar-label">Logo</p>
+                    <p class="basis-brand-pillar-text">The rounded square motif used throughout the UI, in cards, tags, and inputs, is carried directly into the logo mark. The shape also echoes a document, a form, a data field, the exact artifacts engineers work with every day.</p>
+                  </div>
+                  <div class="basis-brand-pillar">
+                    <p class="basis-brand-pillar-label">Design system</p>
+                    <p class="basis-brand-pillar-text">We added tags throughout the design system to make components skimmable at a glance, so the team could move fast without hunting for the right element.</p>
+                  </div>
                 </div>
               </div>
-              <div class="basis-brand-visual-stack">
+              <div class="basis-brand-branding-row" aria-label="Brand direction explorations">
                 <figure class="basis-brand-visual-item">
                   <img class="basis-brand-visual-img" src="basis-images/Brand%201.png" alt="Brand direction option 1" loading="lazy" />
                   <figcaption class="basis-brand-cap">Initial branding</figcaption>
@@ -2019,11 +2001,11 @@
                   <figcaption class="basis-brand-cap">Final branding</figcaption>
                 </figure>
               </div>
+              <figure class="basis-brand-full">
+                <img class="basis-brand-full-img" src="basis-images/design_system-basis.png" alt="Basis design system overview" loading="lazy" />
+                <figcaption class="basis-brand-cap">Final design system</figcaption>
+              </figure>
             </div>
-            <figure class="basis-brand-full">
-              <img class="basis-brand-full-img" src="basis-images/design_system-basis.png" alt="Basis design system overview" loading="lazy" />
-              <figcaption class="basis-brand-cap">Final design system</figcaption>
-            </figure>
           </section>
 
           <section id="iterations" class="case-section case-anchor" data-reveal>
